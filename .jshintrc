@@ -1,4 +1,5 @@
 {
+	"asi": false,
 	"bitwise": true,
 	"camelcase": true,
 	"curly": true,
@@ -15,7 +16,7 @@
 	"nonbsp": true,
 	"nonew": true,
 	"plusplus": true,
-	"quotmark": false,
+	"quotmark": "single",
 	"undef": true,
 	"unused": true,
 	"strict": true,
@@ -23,6 +24,6 @@
 	"maxparams": false,
 	"maxdepth": false,
 	"maxstatements": false,
-	"maxlen": false,
+	"maxlen": 80,
 	"node": true
 }
