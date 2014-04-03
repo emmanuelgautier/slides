@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express'),
   mongoose = require('mongoose'),
   fs = require('fs'),
