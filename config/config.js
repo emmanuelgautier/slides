@@ -9,7 +9,7 @@ var config = {
       name: 'slides'
     },
     port: 3000,
-    db: 'mongodb://localhost/slides-development'
+    db: 'mongodb://localhost/slides'
   },
 
   test: {
@@ -18,7 +18,7 @@ var config = {
       name: 'slides'
     },
     port: 3000,
-    db: 'mongodb://localhost/slides-test'
+    db: 'mongodb://localhost/slides'
   },
 
   production: {
@@ -27,7 +27,7 @@ var config = {
       name: 'slides'
     },
     port: 3000,
-    db: 'mongodb://localhost/slides-production'
+    db: 'mongodb://localhost/slides'
   }
 };
 

@@ -23,4 +23,7 @@ var app = express();
 require('./config/express')(app, config);
 require('./config/routes')(app);
 
-app.listen(config.port);
+var server = app.listen(config.port);
+//var io = require('socket.io').listen(server);
+
+console.log("Slides listen on port 3000");
