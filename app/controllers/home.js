@@ -1,17 +1,12 @@
 'use strict';
 
-var mongoose = require('mongoose'),
-  Article = mongoose.model('Article');
+var mongoose = require('mongoose');
 
 exports.index = function(req, res){
-  Article.find(function(err, articles){
-    if(err) {
-      throw new Error(err);
-    }
+  var SlideShow = mongoose.model('SlideShow');
 
-    res.render('home/index', {
-      title: 'Generator-Express MVC',
-      articles: articles
-    });
+  res.render('home/index', {
+    title: 'Slides',
+    slideshow: new SlideShow({})
   });
 };
