@@ -3,9 +3,9 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
- var UserSchema = new Schema({
- 	name: {type: String},
- 	firstname: {type:  String}
- });
+var UserSchema = new Schema({
+	name: {type: String},
+	firstname: {type:  String}
+});
 
- mongoose.model('User', UserSchema);
+mongoose.model('User', UserSchema);
