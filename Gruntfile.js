@@ -12,23 +12,31 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
     develop: {
       server: {
         file: 'app.js'
       }
     },
+
+    jshint: {
+      // define the list to lint
+      files: ['Gruntfile.js', 'app.js', 'config/*.js', 'app/**/*.js'],
+      // configure JSHint
+      options: {
+        jshintrc: true
+      }
+    },
+
     watch: {
       options: {
         nospawn: true,
         livereload: reloadPort
       },
       js: {
-        files: [
-          'app.js',
-          'app/**/*.js',
-          'config/*.js'
-        ],
-        tasks: ['develop', 'delayed-livereload']
+        files: [ 'Gruntfile.js', 'app.js', 'config/*.js', 'app/**/*.js' ],
+        tasks: ['jshint', 'develop', 'delayed-livereload'],
+        options: { livereload: reloadPort }
       },
       jade: {
         files: ['app/views/**/*.jade'],
@@ -40,6 +48,8 @@ module.exports = function (grunt) {
   grunt.config.requires('watch.js.files');
   files = grunt.config('watch.js.files');
   files = grunt.file.expand(files);
+
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.registerTask('delayed-livereload',
     'Live reload after the node server has restarted.', function () {
@@ -59,6 +69,5 @@ module.exports = function (grunt) {
     }, 500);
   });
 
-  grunt.registerTask('default', ['develop', 'watch']);
+  grunt.registerTask('default', ['jshint', 'develop', 'watch']);
 };
-
