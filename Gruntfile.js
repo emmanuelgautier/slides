@@ -69,5 +69,5 @@ module.exports = function (grunt) {
     }, 500);
   });
 
-  grunt.registerTask('default', ['jshint', 'develop', 'watch']);
+  grunt.registerTask('default', ['jshint', 'develop']);
 };
