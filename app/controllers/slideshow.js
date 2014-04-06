@@ -29,7 +29,6 @@ exports.edit = {
 
 	},
 
-	/*jshint unused:false */
 	add: function(req, res){
 
 	}
