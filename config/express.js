@@ -1,8 +1,9 @@
 'use strict';
 
-var express = require('express');
+var express = require('express'),
+    hbs = require('express-hbs');
 
-module.exports = function(app, hbs, config) {
+module.exports = function(app, config) {
   app.configure(function () {
     app.use(express.compress());
     app.use(express.static(config.root + '/public'));

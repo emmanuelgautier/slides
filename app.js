@@ -3,7 +3,6 @@
 var express = require('express'),
     mongoose = require('mongoose'),
     fs = require('fs'),
-    hbs = require('express-hbs'),
     config = require('./config/config');
 
 mongoose.connect(config.db);
@@ -21,7 +20,7 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 
 var app = express();
 
-require('./config/express')(app, hbs, config);
+require('./config/express')(app, config);
 require('./config/routes')(app);
 
 app.listen(config.port);
