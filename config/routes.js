@@ -7,10 +7,7 @@ module.exports = function(app){
 	app.get('/', home.index);
 
 	//slideshow management routes
-	////////////////////////////////
-	////////// BROKEN CODE /////////
-	////////////////////////////////
-/*	var slideshow = require('../app/controllers/slideshow');
+	var slideshow = require('../app/controllers/slideshow');
 	app.get('slideshow/', slideshow.index);
 
 	app.get('slideshow/:id', slideshow.show);
@@ -21,5 +18,5 @@ module.exports = function(app){
 	app.get('slideshow/edit/:id', slideshow.edit.show);
 	app.post('slideshow/edit/:id', slideshow.edit.add);
 
-	app.get('slideshow/delete/id', slideshow.delete);*/
+	app.get('slideshow/delete/id', slideshow.delete);
 };
