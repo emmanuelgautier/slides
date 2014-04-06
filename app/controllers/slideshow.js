@@ -18,7 +18,6 @@ exports.create = {
 
 	},
 
-	/*jshint unused:false */
 	add: function(req, res){
 
 	}
