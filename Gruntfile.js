@@ -24,7 +24,7 @@ module.exports = function (grunt) {
       files: ['Gruntfile.js', 'app.js', 'config/*.js', 'app/**/*.js'],
       // configure JSHint
       options: {
-        jshintrc: true
+        jshintrc: '.jshintrc'
       }
     },
 
@@ -34,7 +34,7 @@ module.exports = function (grunt) {
         livereload: reloadPort
       },
       js: {
-        files: ['Gruntfile.js', 'app.js', 'config/*.js', 'app/**/*.js'],
+        files: ['<%= jshint.files %>'],
         tasks: ['jshint', 'develop', 'delayed-livereload'],
         options: { livereload: reloadPort }
       },
