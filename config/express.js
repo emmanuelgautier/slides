@@ -1,11 +1,15 @@
 'use strict';
 
 var express = require('express'),
-    hbs = require('express-hbs');
+    hbs = require('express-hbs'),
+    bodyParser = require('body-parser'),
+    compress = require('compression'),
+    favicon = require('static-favicon'),
+    logger = require('morgan'),
+    methodOverride = require('method-override');
 
 module.exports = function(app, config) {
-  app.configure(function () {
-    app.use(express.compress());
+    app.use(compress());
     app.use(express.static(config.root + '/public'));
     app.set('port', config.port);
     app.set('views', config.root + '/app/views');
@@ -16,13 +20,8 @@ module.exports = function(app, config) {
       layoutsDir: config.root + '/app/views/layouts'
     }));
 
-    app.use(express.favicon(config.root + '/public/img/favicon.ico'));
-    app.use(express.logger('dev'));
-    app.use(express.bodyParser());
-    app.use(express.methodOverride());
-    app.use(app.router);
-    app.use(function(req, res) {
-      res.status(404).render('404', { title: '404' });
-    });
-  });
+    app.use(favicon(config.root + '/public/img/favicon.ico'));
+    app.use(logger('dev'));
+    app.use(bodyParser());
+    app.use(methodOverride());
 };
