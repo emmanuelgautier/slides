@@ -37,10 +37,6 @@ module.exports = function (grunt) {
         files: ['<%= jshint.files %>'],
         tasks: ['jshint', 'develop', 'delayed-livereload'],
         options: { livereload: reloadPort }
-      },
-      jade: {
-        files: ['app/views/**/*.jade'],
-        options: { livereload: reloadPort }
       }
     }
   });
