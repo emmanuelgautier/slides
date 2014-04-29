@@ -2,8 +2,6 @@
 
 //FIXME : contournement jshint
 /*jshint unused:false */
-var mongoose = require('mongoose');
-
 
 exports.index = function(req, res) {
 

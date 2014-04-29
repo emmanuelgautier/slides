@@ -1,12 +1,7 @@
 'use strict';
 
-var mongoose = require('mongoose');
-
-exports.index = function(req, res){
-  var SlideShow = mongoose.model('SlideShow');
-
+exports.index = function(req, res) {
   res.render('home/index', {
-    title: 'Slides',
-    slideshow: new SlideShow({})
+    title: 'Slides'
   });
 };
