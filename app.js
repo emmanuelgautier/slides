@@ -1,14 +1,15 @@
 'use strict';
 
 var express = require('express'),
-    config = require('./config/config');
+    http = require('http'),
+    config = require('./config/config'),
 
-var app = express();
+    app = express(),
+    server = http.createServer(app);
 
 require('./config/express')(app, config);
 require('./config/routes')(app);
 
 app.listen(config.port);
-//var io = require('socket.io').listen(server);
 
 console.log('Listening on port', config.port);
