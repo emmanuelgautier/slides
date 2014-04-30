@@ -20,7 +20,7 @@ module.exports = function(app, config) {
       layoutsDir: config.root + '/app/views/layouts'
     }));
 
-    app.use(favicon(config.root + '/public/img/favicon.ico'));
+    //app.use(favicon(config.root + '/public/img/favicon.ico'));
     app.use(logger('dev'));
     app.use(bodyParser());
     app.use(methodOverride());
