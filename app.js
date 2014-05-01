@@ -1,11 +1,9 @@
 'use strict';
 
 var express = require('express'),
-    http = require('http'),
     config = require('./config/config'),
 
-    app = express(),
-    server = http.createServer(app);
+    app = express();
 
 require('./config/express')(app, config);
 require('./config/routes')(app);

@@ -4,7 +4,6 @@ var express = require('express'),
     hbs = require('express-hbs'),
     bodyParser = require('body-parser'),
     compress = require('compression'),
-    favicon = require('static-favicon'),
     logger = require('morgan'),
     methodOverride = require('method-override');
 
@@ -20,7 +19,6 @@ module.exports = function(app, config) {
       layoutsDir: config.root + '/app/views/layouts'
     }));
 
-    //app.use(favicon(config.root + '/public/img/favicon.ico'));
     app.use(logger('dev'));
     app.use(bodyParser());
     app.use(methodOverride());
