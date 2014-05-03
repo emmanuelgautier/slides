@@ -8,8 +8,7 @@ var config = {
     app: {
       name: 'slides'
     },
-    port: 3000,
-    db: 'mongodb://localhost/slides'
+    port: 3000
   },
 
   test: {
@@ -17,8 +16,7 @@ var config = {
     app: {
       name: 'slides'
     },
-    port: 3000,
-    db: 'mongodb://localhost/slides'
+    port: 3000
   },
 
   production: {
@@ -26,8 +24,7 @@ var config = {
     app: {
       name: 'slides'
     },
-    port: 3000,
-    db: 'mongodb://localhost/slides'
+    port: 3000
   }
 };
 
