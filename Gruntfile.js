@@ -7,7 +7,13 @@ module.exports = function (grunt) {
 
     jshint: {
       // define the list to lint
-      files: ['Gruntfile.js', 'app.js', 'config/*.js', 'app/**/*.js'],
+      files: [
+        'Gruntfile.js',
+        'app.js',
+        'slides.js',
+        'config/*.js',
+        'app/**/*.js'
+      ],
       // configure JSHint
       options: {
         jshintrc: '.jshintrc'

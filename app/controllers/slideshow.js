@@ -3,6 +3,8 @@
 //FIXME : contournement jshint
 /*jshint unused:false */
 
+var slides = require('../../slides');
+
 exports.index = function(req, res) {
 
 };
@@ -18,7 +20,11 @@ exports.create = {
 	},
 
 	add: function(req, res) {
+		slides.create({
+			name: 'test'
+		});
 
+		console.log('created');
 	}
 };
 
