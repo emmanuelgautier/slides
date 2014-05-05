@@ -7,8 +7,7 @@ module.exports = function(app) {
 
   app.get('/slideshow/:id', slideshow.show);
 
-  app.get('/slideshow/create', slideshow.create.show);
-  app.post('/slideshow/create', slideshow.create.add);
+  app.post('/slideshow/create', slideshow.create);
 
   app.get('/slideshow/edit/:id', slideshow.edit.show);
   app.post('/slideshow/edit/:id', slideshow.edit.add);

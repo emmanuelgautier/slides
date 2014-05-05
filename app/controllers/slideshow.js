@@ -13,30 +13,26 @@ exports.show = function(req, res) {
 
 };
 
-exports.create = {
+exports.create = function(req, res) {
 
-	show: function(req, res) {
+  var success = slides.create({
+    name: req.body.name
+  });
 
-	},
-
-	add: function(req, res) {
-		slides.create({
-			name: 'test'
-		});
-
-		console.log('created');
-	}
+  if (success) {
+    console.log('created slideshow named', req.body.name);
+  }
 };
 
 exports.edit = {
 
-	show: function(req, res) {
+  show: function(req, res) {
 
-	},
+  },
 
-	add: function(req, res) {
+  add: function(req, res) {
 
-	}
+  }
 };
 
 
