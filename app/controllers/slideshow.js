@@ -20,11 +20,7 @@ exports.create = {
 	},
 
 	add: function(req, res) {
-		slides.create({
-			name: 'test'
-		});
 
-		console.log('created');
 	}
 };
 
