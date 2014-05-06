@@ -1,0 +1,9 @@
+{{!< main}}
+
+<h1>Liste de rooms</h1>
+
+<ul>
+{{#each rooms}}
+  <li><a href="/room/{{token}}">Nom : {{name}}</a></li>
+{{/each}}
+</ul>

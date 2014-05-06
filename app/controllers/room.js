@@ -17,7 +17,27 @@ exports.create = function(req, res) {
 };
 
 exports.show = function(req, res) {
-  res.render('room/show', {
-    title: 'ma room'
+  Room.find({ token: req.query.token }, function(err, room) {
+    if(err) {
+      res.status(404).render('404', { title: '404' });
+    }
+
+    res.render('room/show', {
+      title: 'ma room',
+      room: room
+    });
+  });
+};
+
+exports.list = function(req, res) {
+  Room.list({}, 20, 0, function(err, rooms) {
+    if(err) {
+      return;
+    }
+
+    res.render('room/list', {
+      title: 'Liste de room',
+      rooms: rooms
+    });
   });
 };

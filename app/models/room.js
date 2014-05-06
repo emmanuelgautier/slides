@@ -16,4 +16,14 @@ var mongoose = require('mongoose'),
       createdAt: { type: Date, default: Date.now }
     });
 
+RoomSchema.statics = {
+  list: function(options, number, page, callback) {
+    this.find(options)
+      .sort('createdAt')
+      .limit(number)
+      .skip(number * page)
+      .exec(callback); //sort par date
+  }
+};
+
 mongoose.model('Room', RoomSchema);
