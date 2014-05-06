@@ -8,15 +8,17 @@ var config = {
     app: {
       name: 'slides'
     },
-    port: 3000
+    port: 3000,
+    db: 'mongodb://localhost/slides'
   },
 
   test: {
     root: rootPath,
     app: {
-      name: 'slides'
+      name: 'slides',
     },
-    port: 3000
+    port: 3000,
+    db: 'mongodb://localhost/slides'
   },
 
   production: {
@@ -24,7 +26,8 @@ var config = {
     app: {
       name: 'slides'
     },
-    port: 3000
+    port: 3000,
+    db: 'mongodb://localhost/slides'
   }
 };
 
