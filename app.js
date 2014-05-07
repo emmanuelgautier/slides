@@ -5,8 +5,6 @@ var express = require('express'),
     mongoose = require('mongoose'),
     fs = require('fs'),
 
-    //slides = require('./slides'),
-
     app = express();
 
 mongoose.connect(config.db);
