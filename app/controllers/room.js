@@ -17,15 +17,16 @@ exports.create = function(req, res) {
 };
 
 exports.show = function(req, res) {
-  Room.find({ token: req.query.token }, function(err, room) {
-    if(err) {
+
+  Room.find({ token: req.params.token }, function(err, room) {
+    if(room.length) {
+      res.render('room/show', {
+        title: 'ma room',
+        room: room
+      });
+    } else {
       res.status(404).render('404', { title: '404' });
     }
-
-    res.render('room/show', {
-      title: 'ma room',
-      room: room
-    });
   });
 };
 
