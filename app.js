@@ -7,6 +7,8 @@ var express = require('express'),
 
     app = express();
 
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 mongoose.connect(config.db);
 var db = mongoose.connection;
 db.on('error', function () {
@@ -19,6 +21,16 @@ fs.readdirSync(modelsPath).forEach(function (file) {
     require(modelsPath + '/' + file);
   }
 });
+
+// Cleaning database when developing
+if (process.env.NODE_ENV === 'development') {
+  mongoose.model('Room').remove({}, function(err) {
+    if (err) {
+      throw err;
+    }
+    console.log('Database cleaned.');
+  });
+}
 
 require('./config/express')(app, config);
 require('./config/routes')(app);
