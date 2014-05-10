@@ -20,8 +20,10 @@ var mongoose = require('mongoose'),
     },
 
     RoomSchema = new Schema({
-      token: { type: String, index: { unique: true }, default: generateToken },
       name: { type: String, default: null },
+      description: { type: String},
+      public: { type: Boolean, default: true },
+      token: { type: String, index: { unique: true }, default: generateToken },
       createdAt: { type: Date, default: Date.now }
     });
 

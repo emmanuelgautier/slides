@@ -22,14 +22,9 @@ fs.readdirSync(modelsPath).forEach(function (file) {
   }
 });
 
-// Cleaning database when developing
 if (process.env.NODE_ENV === 'development') {
-  mongoose.model('Room').remove({}, function(err) {
-    if (err) {
-      throw err;
-    }
-    console.log('Database cleaned.');
-  });
+  //database action
+  require('./seed')(mongoose);
 }
 
 require('./config/express')(app, config);
