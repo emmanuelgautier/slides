@@ -8,14 +8,14 @@ var actionToDo = 2,
 
     terminateAction = function(){},
 
-    seed = function(mongoose, console) {
+    seed = function(mongoose) {
       // Cleaning database when developing
       mongoose.model('Room').remove({}, function(err) {
         if (err) {
           throw err;
         }
 
-        //console.log('Database cleaned.');
+        console.log('Database cleaned.');
 
         terminateAction();
       });
@@ -37,7 +37,7 @@ var actionToDo = 2,
           throw err;
         }
 
-        //console.log('Database seeded');
+        console.log('Database seeded');
 
         terminateAction();
       });
