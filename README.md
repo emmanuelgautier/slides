@@ -1,8 +1,7 @@
-slides
+Slides
 ======
 
-YOLO
+# Installation
 
-Installation
-------------
-Afin de récupérer l'ensemble des packets,il est nécessaire de faire un " npm update " une fois le repo récupéré
+- Clôner le repo et lancer `npm install`
+- Installer gulp en global si ça n'est pas déjà fait : `npm install -g gulp`
