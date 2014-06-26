@@ -7,17 +7,9 @@ var Schema = mongoose.Schema;
 var generateToken = function() {
 
   //génération d'un hash à partir de la date et d'un nombre aléatoire
-  var hash = crypto.createHash('sha1')
-              .update( Date.now().toString() + Math.random().toString() )
-              .digest('base64');
-
-  //suppression des caractères spéciaux
-  hash = hash.replace(/[^0-9a-zA-Z]+/, '');
-
-  //suppression du caractère = de fin
-  hash = hash.substr(0, hash.length - 1);
-
-  return hash;
+  return crypto.createHash('md5')
+              .update( Date.now() + Math.random().toString() )
+              .digest('hex')
 };
 
 var RoomSchema = new Schema({
