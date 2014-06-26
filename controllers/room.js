@@ -5,7 +5,7 @@ var Room = mongoose.model('Room');
 
 exports.create = function(req, res, next) {
   var room = new Room();
-  room.name = 'New room';
+  room.name = require('../fun').haiku();
   room.description = 'A new room';
   room.save(function(err, room){
     if (err) {
@@ -21,6 +21,7 @@ exports.show = function(req, res, next) {
   Room.find({ token: req.params.token }, function(err, room) {
     if(room.length) {
       res.render('room/show', {
+        title: room[0].name,
         room: room[0]
       });
     } else {
