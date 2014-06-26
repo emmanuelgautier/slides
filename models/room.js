@@ -9,7 +9,7 @@ var generateToken = function() {
   //génération d'un hash à partir de la date et d'un nombre aléatoire
   return crypto.createHash('md5')
               .update( Date.now() + Math.random().toString() )
-              .digest('hex')
+              .digest('hex');
 };
 
 var RoomSchema = new Schema({
