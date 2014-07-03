@@ -1,11 +1,10 @@
 {
   "name": "slides",
   "version": "0.0.1",
-  "directory": "public/components/",
+  "directory" : "./public/components",
   "ignore": [
     "**/.*",
-    "node_modules",
-    "components"
+    "node_modules"
   ],
   "dependencies": {
     "angular": "1.2.x",
