@@ -28,6 +28,7 @@ module.exports = function(app, config){
   app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
+
     next(err);
   });
 
@@ -44,6 +45,8 @@ module.exports = function(app, config){
         message: err.message,
         error: err
       });
+
+      console.error(err.message);
     });
   }
 
@@ -56,6 +59,8 @@ module.exports = function(app, config){
       message: err.message,
       error: {}
     });
+
+    console.error(err.message);
   });
 
   app.set('port', process.env.PORT || config.port);
