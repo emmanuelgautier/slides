@@ -1,9 +1,11 @@
 'use strict';
 
 var fs = require('fs'),
-    path = require('path');
+    path = require('path'),
 
-module.exports = function(){
+    router = {};
+
+module.exports = function(app){
   fs.readdirSync(__dirname)
     .filter(function(file) {
       return ((file.indexOf('.') !== 0) && 
@@ -11,6 +13,8 @@ module.exports = function(){
               (file.slice(-3) === '.js'));
     })
     .forEach(function(file) {
-      require(path.join(__dirname, file));
+      router = require(path.join(__dirname, file));
+
+      app.use(router.use, router.router);
     });
 };

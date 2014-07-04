@@ -7,4 +7,7 @@ var rooms = require('../controllers/rooms');
 
 router.get('/', rooms.list);
 
-module.exports = router;
+module.exports = {
+  use: '/rooms',
+  router: router
+};

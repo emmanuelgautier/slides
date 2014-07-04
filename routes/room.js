@@ -12,4 +12,7 @@ router
     res.redirect('/rooms');
   });
 
-module.exports = router;
+module.exports = {
+  use: '/room',
+  router: router
+};

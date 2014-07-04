@@ -7,4 +7,7 @@ var express = require('express'),
 
 router.get('/', home.home);
 
-module.exports = router;
+module.exports = {
+  use: '/',
+  router: router
+};
