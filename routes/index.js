@@ -1,10 +1,16 @@
 'use strict';
 
-var express = require('express');
-var router = express.Router();
+var fs = require('fs'),
+    path = require('path');
 
-var index = require('../controllers/index');
-
-router.get('/', index.home);
-
-module.exports = router;
+module.exports = function(){
+  fs.readdirSync(__dirname)
+    .filter(function(file) {
+      return ((file.indexOf('.') !== 0) && 
+              (file !== 'index.js') && 
+              (file.slice(-3) === '.js'));
+    })
+    .forEach(function(file) {
+      require(path.join(__dirname, file));
+    });
+};
