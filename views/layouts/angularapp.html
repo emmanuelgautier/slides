@@ -42,8 +42,8 @@ if((window.jQuery && !$('html').hasClass('lt-ie8')) || navigator.appVersion.inde
 </script>
 {% endblock %}
 
-{% block body %}
+{% block content %}
 <body ng-controller="AppCtrl">
-    <div ng-view>{{{body}}}</div>
+    <div ng-view>{% block body %}</div>
 </body>
 {% endblock %}
