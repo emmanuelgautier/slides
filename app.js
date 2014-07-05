@@ -6,8 +6,8 @@ var express = require('express'),
     app = express();
 
 require('./config/db')(config);
-require('./config/express')(app, config);
 require('./routes/')(app);
+require('./config/express')(app, config);
 
 var server = app.listen(app.get('port'), function() {
   console.log('Express server listening on port', server.address().port);
