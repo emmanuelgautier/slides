@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express'),
-    favicon = require('static-favicon'),
+    favicon = require('serve-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
@@ -17,7 +17,7 @@ module.exports = function(app, config){
   app.set('view engine', 'html');
   app.set('views', config.root + '/views');
 
-  app.use(favicon());
+  app.use(favicon( config.root + '/public/favicon.ico'));
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
