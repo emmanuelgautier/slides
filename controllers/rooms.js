@@ -8,7 +8,6 @@ exports.list = function(req, res) {
     if(err) { return; }
 
     res.render('rooms/list', {
-      title: 'Salles publiques',
       rooms: rooms
     });
   });
