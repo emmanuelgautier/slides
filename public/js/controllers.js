@@ -2,4 +2,10 @@
 
 slidesApp.controller('AppCtrl', function($scope) {});
 
-slidesApp.controller('MainCtrl', function($scope, $location) {});
+slidesApp.controller('HomeCtrl', function($scope, $location) {});
+
+slidesApp.controller('RoomsCtrl', function($scope){});
+
+slidesApp.controller('RoomCreateCtrl', function($scope){});
+
+slidesApp.controller('RoomShowCtrl', function($scope){});
