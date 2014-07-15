@@ -5,7 +5,7 @@ var jshint = require('gulp-jshint');
 
 // Lint JavaScript
 gulp.task('jshint', function () {
-  return gulp.src(['./**/*.js', '!**/node_modules/**'])
+  return gulp.src(['./**/*.js', '!**/node_modules/**', '!**/public/components/**'])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(jshint.reporter('fail'));
