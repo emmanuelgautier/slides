@@ -6,11 +6,9 @@ var express = require('express'),
 var room = require('../controllers/room');
 
 router
+  .get('/', room.list)
   .get('/create', room.create)
-  .get('/:token', room.show)
-  .get('/', function (req, res) {
-    res.redirect('/rooms');
-  });
+  .get('/:token', room.show);
 
 module.exports = {
   use: '/room',
