@@ -3,9 +3,11 @@
 var express = require('express'),
     router = express.Router();
 
-//TODO: add api routes
+var partials = require('../controllers/partials');
+
+router.get(':name', partials);
 
 module.exports = {
-  use: '/api',
+  use: '/partials',
   router: router
 };
