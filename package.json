@@ -10,14 +10,18 @@
     "body-parser": "^1.4.3",
     "cookie-parser": "^1.3.1",
     "express": "^4.4.4",
-    "gulp": "^3.8.2",
+    "grunt": "^0.4.5",
     "mongoose": "3.8.12",
     "morgan": "^1.1.1",
     "serve-favicon": "^2.0.1",
     "swig": "^1.3.2"
   },
   "devDependencies": {
-    "gulp-jshint": "^1.6.3",
-    "jshint-stylish": "^0.2.0"
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-less": "^0.11.4",
+    "grunt-contrib-cssmine": "^0.10.0",
+    "grunt-contrib-jshint": "^0.10.0"
   }
 }
