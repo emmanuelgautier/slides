@@ -1,6 +1,6 @@
-{% extends 'layouts/main.html' %}
+{{!< main}}
 
-{% block headerScripts %}
+{{#contentFor 'headerScripts'}}
 <script>
 //to disable angularjs for ie7 and below
 if((window.jQuery && !$('html').hasClass('lt-ie8')) || navigator.appVersion.indexOf("MSIE 7.") === -1){
@@ -41,10 +41,8 @@ if((window.jQuery && !$('html').hasClass('lt-ie8')) || navigator.appVersion.inde
   });
 }
 </script>
-{% endblock %}
+{{/contentFor}}
 
-{% block body %}
 <body ng-controller="AppCtrl">
-    <div ng-view>{% block content %}</div>
+    <div ng-view>{{{block 'content' }}}</div>
 </body>
-{% endblock %}

@@ -5,17 +5,18 @@ var express = require('express'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    swig = require('swig');
+    hbs = require('express-hbs');
 
 module.exports = function(app, config){
-  // view engine setup
-  swig.setDefaults({ loader: swig.loaders.fs(config.root + '/views') });
-  if (process.env.NODE_ENV === 'development') {
-    swig.setDefaults({ cache: false });
-  }
-  app.engine('html', swig.renderFile);
-  app.set('view engine', 'html');
+  app.set('view engine', 'hbs');
   app.set('views', config.root + '/views');
+
+  app.engine('hbs', hbs.express3({
+    partialsDir: config.root + "/views/partials",
+    layoutsDir: config.root + "/views/layouts",
+    defaultLayout: config.root + "/views/layouts/main.hbs",
+    extname: ".hbs",
+  }));
 
   app.use(favicon( config.root + '/public/favicon.ico'));
   app.use(logger('dev'));

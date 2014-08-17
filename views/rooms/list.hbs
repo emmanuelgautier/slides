@@ -1,0 +1,9 @@
+{{!< angularapp}}
+
+{{#contentFor 'content'}}
+<ul>
+{{#each rooms}}
+	<li><a href="/room/{{token}}">{{name}}</a></li>
+{{/each}}
+</ul>
+{{/contentFor}}
