@@ -5,6 +5,21 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
+    copy: {
+      fontawesome: {
+        expand: true,
+        cwd: 'bower_components/fontawesome/fonts/',
+        src: '*',
+        dest: 'public/fonts/'
+      },
+      assetsJs: {
+        expand: true,
+        cwd: 'assets/js/',
+        src: '*.js',
+        dest: 'public/js/'
+      }
+    },
+
     jshint: {
       dev: [
         'Gruntfile.js',
@@ -24,20 +39,27 @@ module.exports = function(grunt) {
           compress: true,
         },
         files: {
-          'assets/stylesheets/default.css': 'public/css/default.css'
+          'assets/less/default.less': 'public/css/default.css'
         }
       }
     },
 
     watch: {
-      stylesheets: {
-        files: ['assets/stylesheets/*.less'],
+      assetsLess: {
+        files: ['assets/less/*.less'],
         tasks: ['less:dev'],
         options: {
           livereload: true
         }
       },
-      javascript: {
+      assetsJs: {
+        files: ['assets/js/*.js'],
+        tasks: ['copy:assetsJs'],
+        options: {
+          livereload: true
+        }
+      },
+      jshint: {
         files: [
           'Gruntfile.js',
           'app.js',
@@ -53,10 +75,11 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['less:dev', 'jshint:dev', 'watch']);
+  grunt.registerTask('default', ['less:dev', 'jshint:dev', 'copy', 'watch']);
   grunt.registerTask('prod', ['less']);
 };
