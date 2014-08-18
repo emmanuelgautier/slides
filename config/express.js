@@ -12,10 +12,10 @@ module.exports = function(app, config){
   app.set('views', config.root + '/views');
 
   app.engine('hbs', hbs.express3({
-    partialsDir: config.root + "/views/partials",
-    layoutsDir: config.root + "/views/layouts",
-    defaultLayout: config.root + "/views/layouts/main.hbs",
-    extname: ".hbs",
+    partialsDir: config.root + '/views/partials',
+    layoutsDir: config.root + '/views/layouts',
+    defaultLayout: config.root + '/views/layouts/main.hbs',
+    extname: '.hbs',
   }));
 
   app.use(favicon( config.root + '/public/favicon.ico'));

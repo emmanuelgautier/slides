@@ -6,7 +6,13 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     jshint: {
-      dev: ['Gruntfile.js', 'app.js', 'config/*.js', 'models/*.js', 'routes/*.js'],
+      dev: [
+        'Gruntfile.js',
+        'app.js',
+        'config/*.js',
+        'models/*.js',
+        'routes/*.js'
+      ],
       options: {
         jshintrc: '.jshintrc'
       }
@@ -32,7 +38,13 @@ module.exports = function(grunt) {
         }
       },
       javascript: {
-        files: ['Gruntfile.js', 'app.js', 'config/*.js', 'models/*.js', 'routes/*.js'],
+        files: [
+          'Gruntfile.js',
+          'app.js',
+          'config/*.js',
+          'models/*.js',
+          'routes/*.js'
+        ],
         tasks: ['jshint:dev'],
         options: {
           livereload: true
