@@ -14,7 +14,7 @@ module.exports = function(grunt) {
       },
       assetsJs: {
         expand: true,
-        cwd: 'assets/js/',
+        cwd: 'app/assets/js/',
         src: '*.js',
         dest: 'public/js/'
       },
@@ -36,9 +36,9 @@ module.exports = function(grunt) {
       dev: [
         'Gruntfile.js',
         'app.js',
-        'config/*.js',
-        'models/*.js',
-        'routes/*.js'
+        'app/config/*.js',
+        'app/models/*.js',
+        'app/routes/*.js'
       ],
       options: {
         jshintrc: '.jshintrc'
@@ -51,21 +51,21 @@ module.exports = function(grunt) {
           compress: true,
         },
         files: {
-          'assets/less/default.less': 'public/css/default.css'
+          'app/assets/less/default.less': 'public/css/default.css'
         }
       }
     },
 
     watch: {
       assetsLess: {
-        files: ['assets/less/*.less'],
+        files: ['app/assets/less/*.less'],
         tasks: ['less:dev'],
         options: {
           livereload: true
         }
       },
       assetsJs: {
-        files: ['assets/js/*.js'],
+        files: ['app/assets/js/*.js'],
         tasks: ['copy:assetsJs'],
         options: {
           livereload: true
@@ -75,9 +75,9 @@ module.exports = function(grunt) {
         files: [
           'Gruntfile.js',
           'app.js',
-          'config/*.js',
-          'models/*.js',
-          'routes/*.js'
+          'app/config/*.js',
+          'app/models/*.js',
+          'app/routes/*.js'
         ],
         tasks: ['jshint:dev'],
         options: {

@@ -33,7 +33,7 @@ var path = require('path'),
 };
 
 module.exports = function(config){
-  var modelsPath = config.root + '/models', db;
+  var modelsPath = config.root + '/app/models', db;
 
   mongoose.connect(config.db);
   db = mongoose.connection;

@@ -9,12 +9,12 @@ var express = require('express'),
 
 module.exports = function(app, config){
   app.set('view engine', 'hbs');
-  app.set('views', config.root + '/views');
+  app.set('views', config.root + '/app/views');
 
   app.engine('hbs', hbs.express3({
-    partialsDir: config.root + '/views/partials',
-    layoutsDir: config.root + '/views/layouts',
-    defaultLayout: config.root + '/views/layouts/main.hbs',
+    partialsDir: config.root + '/app/views/partials',
+    layoutsDir: config.root + '/app/views/layouts',
+    defaultLayout: config.root + '/app/views/layouts/main.hbs',
     extname: '.hbs',
   }));
 
