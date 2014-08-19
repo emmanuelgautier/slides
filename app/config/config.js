@@ -6,6 +6,7 @@ var path = require('path'),
 
 var config = {
   development: {
+    env: 'development',
     root: rootPath,
     app: {
       name: 'slides'
@@ -15,6 +16,7 @@ var config = {
   },
 
   production: {
+    env: 'production',
     root: rootPath,
     app: {
       name: 'slides',
