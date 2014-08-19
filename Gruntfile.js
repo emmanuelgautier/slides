@@ -17,6 +17,18 @@ module.exports = function(grunt) {
         cwd: 'assets/js/',
         src: '*.js',
         dest: 'public/js/'
+      },
+      components: {
+        expand: true,
+        cwd: 'bower_components/',
+        src: [
+          'angular/angular.min.js',
+          'angular-route/angular-route.min.js',
+          'jquery/dist/jquery.min.js',
+          'modernizr/modernizr.js'
+        ],
+        flatten: true,
+        dest: 'public/js/'
       }
     },
 
