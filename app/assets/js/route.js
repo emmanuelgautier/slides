@@ -6,15 +6,15 @@ slidesApp.config(['$routeProvider', '$locationProvider',
         controller: 'HomeCtrl'
       }).
       when('/rooms', {
-        templateUrl: '/partials/rooms',
+        templateUrl: '/partials/rooms.html',
         controller: 'RoomsCtrl'
       }).
       when('/room/create', {
-        templateUrl: '/partials/room/create',
+        templateUrl: '/partials/room/create.html',
         controller: 'RoomCreateCtrl'
       }).
       when('/room/:token', {
-        templateUrl: '/partials/room/show',
+        templateUrl: '/partials/room/show.html',
         controller: 'RoomShowCtrl'
       }).
       when('/room/', {
