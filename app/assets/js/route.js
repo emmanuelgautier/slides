@@ -10,7 +10,6 @@ slidesApp.config(['$routeProvider', '$locationProvider',
         controller: 'RoomsCtrl'
       }).
       when('/room/create', {
-        templateUrl: '/partials/room/create.html',
         controller: 'RoomCreateCtrl'
       }).
       when('/room/:token', {
