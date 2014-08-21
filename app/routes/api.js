@@ -3,7 +3,12 @@
 var express = require('express'),
     router = express.Router();
 
-//TODO: add api routes
+var room = require('../controllers/room');
+
+router
+  .get('/room/', room.api.list)
+  .get('/room/create', room.api.create)
+  .get('/room/:token', room.api.show);
 
 module.exports = {
   use: '/api',
