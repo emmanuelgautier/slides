@@ -3,33 +3,8 @@
 var mongoose = require('mongoose');
 var Room = mongoose.model('Room');
 
-exports.create = function(req, res, next) {
-  exports.api.create(req, res, next, function(room){
-    res.redirect('/room/' + room.token);
-  });
-};
-
-exports.list = function(req, res, next) {
-  exports.api.list(req, res, next, function(rooms){
-    res.render('rooms/list', {
-      rooms: rooms
-    });
-  });
-};
-
-exports.show = function(req, res, next) {
-  exports.api.show(req, res, next, function(room){
-    res.render('room/show', {
-      title: room[0].name,
-      room: room[0]
-    });
-  });
-};
-
-exports.api = {
-  create: function(req, res, next, callback){
-    callback = (!callback || typeof callback != 'function') ? function(d){ res.json(d); } : callback;
-
+var fn = {
+  create: function(next, callback) {
     var room = new Room();
       room.name = require('../fun').haiku();
       room.description = 'A new room';
@@ -42,9 +17,7 @@ exports.api = {
       });
   },
 
-  list: function(req, res, next, callback){
-    callback = (!callback || typeof callback != 'function') ? function(d){ res.json(d); } : callback;
-
+  list: function(next, callback) {
     Room.find({ public: true }, function(err, rooms) {
       if(err) { return; }
 
@@ -52,15 +25,56 @@ exports.api = {
     });
   },
 
-  show: function(req, res, next, callback){
-    callback = (!callback || typeof callback != 'function') ? function(d){ res.json(d); } : callback;
-
+  show: function(req, next, callback) {
     Room.find({ token: req.params.token }, function(err, room) {
       if(room.length) {
         callback(room);
       } else {
         next();
       }
+    });
+  }
+};
+
+exports.create = function(req, res, next) {
+  fn.create(next, function(room){
+    res.redirect('/room/' + room.token);
+  });
+};
+
+exports.list = function(req, res, next) {
+  fn.list(next, function(rooms){
+    res.render('rooms/list', {
+      rooms: rooms
+    });
+  });
+};
+
+exports.show = function(req, res, next) {
+  fn.show(req, next, function(room){
+    res.render('room/show', {
+      title: room[0].name,
+      room: room[0]
+    });
+  });
+};
+
+exports.api = {
+  create: function(req, res, next){
+    fn.create(next, function(room) {
+      res.json(room);
+    });
+  },
+
+  list: function(req, res, next){
+    fn.list(next, function(rooms) {
+      res.json(rooms);
+    });
+  },
+
+  show: function(req, res, next){
+    fn.show(req, next, function(room) {
+      res.json(room);
     });
   }
 };
