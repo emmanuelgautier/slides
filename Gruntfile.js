@@ -38,7 +38,8 @@ module.exports = function(grunt) {
         'app.js',
         'app/config/*.js',
         'app/models/*.js',
-        'app/routes/*.js'
+        'app/routes/*.js',
+        'app/controllers/*.js'
       ],
       options: {
         jshintrc: '.jshintrc'
