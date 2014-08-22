@@ -22,7 +22,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'bower_components/',
         src: [
-          'angular/angular.min.js',
+          'angular/angular.min.{js,js.map}',
           'angular-*/angular-*.min.{js,js.map}',
           'jquery/dist/jquery.min.js',
           'modernizr/modernizr.js'
