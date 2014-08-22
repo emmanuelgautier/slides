@@ -26,8 +26,8 @@ var fn = {
   },
 
   show: function(req, next, callback) {
-    Room.find({ token: req.params.token }, function(err, room) {
-      if(room.length) {
+    Room.findOne({ token: req.params.token }, function(err, room) {
+      if(room) {
         callback(room);
       } else {
         next();
@@ -53,8 +53,8 @@ exports.list = function(req, res, next) {
 exports.show = function(req, res, next) {
   fn.show(req, next, function(room){
     res.render('room/show', {
-      title: room[0].name,
-      room: room[0]
+      title: room.name,
+      room: room
     });
   });
 };
@@ -62,7 +62,7 @@ exports.show = function(req, res, next) {
 exports.api = {
   create: function(req, res, next){
     fn.create(next, function(room) {
-      res.json(room);
+      res.json({token: room.token});
     });
   },
 
