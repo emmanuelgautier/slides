@@ -23,7 +23,7 @@ module.exports = function(grunt) {
         cwd: 'bower_components/',
         src: [
           'angular/angular.min.js',
-          'angular-route/angular-route.min.js',
+          'angular-*/angular-*.min.js',
           'jquery/dist/jquery.min.js',
           'modernizr/modernizr.js'
         ],
