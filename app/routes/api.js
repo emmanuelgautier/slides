@@ -7,7 +7,7 @@ var room = require('../controllers/room');
 
 router
   .get('/room/', room.api.list)
-  .get('/room/create', room.api.create)
+  .post('/room/', room.api.create)
   .get('/room/:token', room.api.show);
 
 module.exports = {
