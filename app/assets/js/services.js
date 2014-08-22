@@ -24,4 +24,8 @@
       }
     };
   });
+
+  slidesApp.factory('Room', function ($resource) {
+    return $resource('api/room/:token');
+  });
 })();
