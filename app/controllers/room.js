@@ -1,12 +1,12 @@
 'use strict';
 
-var mongoose = require('mongoose');
-var Room = mongoose.model('Room');
+var mongoose = require('mongoose'),
+    Room = mongoose.model('Room');
 
 var fn = {
-  create: function(next, callback) {
+  create: function(req, next, callback) {
     var room = new Room();
-      room.name = require('../fun').haiku();
+      room.name = req.param('name');
       room.description = 'A new room';
       room.save(function(err, room){
         if (err) {
@@ -37,7 +37,7 @@ var fn = {
 };
 
 exports.create = function(req, res, next) {
-  fn.create(next, function(room){
+  fn.create(req, next, function(room){
     res.redirect('/room/' + room.token);
   });
 };
@@ -61,7 +61,8 @@ exports.show = function(req, res, next) {
 
 exports.api = {
   create: function(req, res, next){
-    fn.create(next, function(room) {
+    console.log(req.body.name);
+    fn.create(req, next, function(room) {
       res.json({token: room.token});
     });
   },
