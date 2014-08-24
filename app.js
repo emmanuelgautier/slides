@@ -6,7 +6,6 @@ var express = require('express'),
     app = express();
 
 require('./app/config/db')(config);
-require('./app/routes/')(app);
 require('./app/config/express')(app, config);
 
 var server = app.listen(app.get('port'), function() {

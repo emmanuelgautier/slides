@@ -8,6 +8,13 @@ var express = require('express'),
     hbs = require('express-hbs');
 
 module.exports = function(app, config){
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
+  app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+   app.use(cookieParser());
+
+  require('../routes/')(app);
+
   app.set('view engine', 'hbs');
   app.set('views', config.root + '/app/views');
 
@@ -20,9 +27,7 @@ module.exports = function(app, config){
 
   app.use(favicon( config.root + '/public/favicon.ico'));
   app.use(logger('dev'));
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(cookieParser());
+
   app.use(express.static(config.root + '/public'));
 
   /// catch 404 and forward to error handler
