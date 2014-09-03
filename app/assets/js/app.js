@@ -1,3 +1,3 @@
 'use strict';
 
-var slidesApp = angular.module('slides', ['ngRoute', 'ngResource']);
+var slidesApp = angular.module('slidesApp', ['ngRoute', 'ngResource']);
