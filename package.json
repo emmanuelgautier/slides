@@ -14,7 +14,8 @@
     "mongoose": "^3.8.15",
     "morgan": "^1.2.3",
     "serve-favicon": "^2.0.1",
-    "express-hbs": "^0.7.11"
+    "express-hbs": "^0.7.11",
+    "socket.io": "^1.0.6"
   },
   "devDependencies": {
     "grunt-contrib-watch": "^0.6.1",
