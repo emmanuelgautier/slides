@@ -12,8 +12,10 @@ slidesApp.controller('RoomCreateCtrl', function($scope){
 
 });
 
-slidesApp.controller('RoomShowCtrl', function($scope, $routeParams, Room){
+slidesApp.controller('RoomShowCtrl', function($scope, $routeParams, $socket, Room){
   $scope.room = Room.get({token: $routeParams.token});
+
+  $socket.slides.join($scope.room.token);
 });
 
 slidesApp.controller('RoomCreateFormCtrl', function($scope, $location, Room) {
