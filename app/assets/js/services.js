@@ -2,7 +2,11 @@
   'use strict';
 
   slidesApp.factory('$socket', function ($rootScope) {
-    var $socket = function(socket) {
+    var $socket = function(namespace) {
+          var socket = io('/' + namespace),
+
+              _room = null;
+
           return {
             on: function (eventName, callback) {
               return socket.on(eventName, function () {
@@ -13,6 +17,9 @@
               });
             },
             emit: function (eventName, data, callback) {
+              if(_room)
+                data = (typeof data === 'object') ? data.room = _room : { room: _room };
+
               return socket.emit(eventName, data, function () {
                 var args = arguments;
                 $rootScope.$apply(function () {
@@ -23,14 +30,17 @@
               });
             },
             join: function(room) {
-              return this.emit('room', room);
+              if(namespace)
+                _room = room;
+
+              return socket.emit('room', room);
             }
           }
         };
 
     return {
-      chat: $socket(io('/chat')),
-      slides: $socket(io('/slides'))
+      chat: $socket('chat'),
+      slides: $socket('slides')
     };
   });
 
