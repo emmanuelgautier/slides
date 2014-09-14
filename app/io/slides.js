@@ -8,20 +8,8 @@ module.exports = function(io) {
       .on('room', function(room) {
         socket.join(room);
       })
-      .on('next', function(slide) {
-        socket.to(slide.room).emit('next');
-      })
-      .on('previous', function(slide) {
-        socket.to(slide.room).emit('previous');
-      })
-      .on('first', function(slide) {
-        socket.to(slide.room).emit('first');
-      })
-      .on('last', function(slide) {
-        socket.to(room).emit('last');
-      })
       .on('to', function(slide) {
-        socket.to(slide.room).emit('to', slide.to);
+        socket.broadcast.to(slide.room).emit('to', slide.to);
       });
   });
 };

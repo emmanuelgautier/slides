@@ -12,16 +12,18 @@ slidesApp.controller('RoomCreateCtrl', function($scope){
 
 });
 
-slidesApp.controller('RoomShowCtrl', function($scope, $routeParams, $socket, Room){
-  $scope.room = Room.get({token: $routeParams.token});
+slidesApp.controller('RoomShowCtrl', function($scope, $routeParams, $socket, $slideshow, Room) {
+  var room = Room.get({token: $routeParams.token}, function() {
+    $scope.room = room;
 
-  $socket.slides.join($scope.room.token);
+    $slideshow.start(room);
+  });
 });
 
 slidesApp.controller('RoomCreateFormCtrl', function($scope, $location, Room) {
   $scope.save = function(roomForm) {
     var room = new Room(roomForm);
-      room.$save(function(roomCreated){
+      room.$save(function(roomCreated) {
       	$location.path('/room/' + roomCreated.token);
       });
   };
