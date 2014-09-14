@@ -8,20 +8,25 @@ module.exports = function(io) {
       .on('room', function(room) {
         socket.join(room);
       })
-      .on('next', function(slides) {
-        socket.to(slides.room).emit('next');
+      .on('next', function(slide) {
+        if(typeof slide === 'object')
+          socket.to(slide.room).emit('next');
       })
-      .on('previous', function(slides) {
-        socket.to(slides.room).emit('previous');
+      .on('previous', function(slide) {
+        if(typeof slide === 'object')
+          socket.to(slide.room).emit('previous');
       })
-      .on('first', function(slides) {
-        socket.to(slides.room).emit('first');
+      .on('first', function(slide) {
+        if(typeof slide === 'object')
+          socket.to(slide.room).emit('first');
       })
-      .on('last', function(slides) {
-        socket.to(slides.room).emit('last');
+      .on('last', function(slide) {
+        if(typeof slide === 'object')
+          socket.to(room).emit('last');
       })
-      .on('to', function(slides) {
-        socket.to(slides.room).emit('to', slides.to);
+      .on('to', function(slide) {
+        if(typeof slide === 'object')
+          socket.to(slide.room).emit('to', slide.to);
       });
   });
 };
