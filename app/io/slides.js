@@ -9,24 +9,19 @@ module.exports = function(io) {
         socket.join(room);
       })
       .on('next', function(slide) {
-        if(typeof slide === 'object')
-          socket.to(slide.room).emit('next');
+        socket.to(slide.room).emit('next');
       })
       .on('previous', function(slide) {
-        if(typeof slide === 'object')
-          socket.to(slide.room).emit('previous');
+        socket.to(slide.room).emit('previous');
       })
       .on('first', function(slide) {
-        if(typeof slide === 'object')
-          socket.to(slide.room).emit('first');
+        socket.to(slide.room).emit('first');
       })
       .on('last', function(slide) {
-        if(typeof slide === 'object')
-          socket.to(room).emit('last');
+        socket.to(room).emit('last');
       })
       .on('to', function(slide) {
-        if(typeof slide === 'object')
-          socket.to(slide.room).emit('to', slide.to);
+        socket.to(slide.room).emit('to', slide.to);
       });
   });
 };
