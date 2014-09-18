@@ -5,24 +5,7 @@
     var $socket = function(namespace) {
           var socket = io('/' + namespace),
 
-              _room = null,
-
-              mergeObject = function(o1, o2) {
-                if(!o1 || typeof o1 != 'object')
-                  o1 = {};
-
-                if(typeof o2 != 'object')
-                  return o1;
-
-                if(!o1 || !o2)
-                  return o1;
-
-                for(var k in o2)
-                  if(o2.hasOwnProperty(k))
-                    o1[k] = o2[k];
-
-                  return o1;
-              }
+              _room = null;
 
           return {
             on: function (eventName, callback) {
@@ -34,10 +17,6 @@
               });
             },
             emit: function (eventName, data, callback) {
-              if(_room){
-                data = mergeObject(data, { room: _room });
-              }
-
               return socket.emit(eventName, data, function () {
                 var args = arguments;
                 $rootScope.$apply(function () {
