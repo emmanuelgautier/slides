@@ -60,7 +60,7 @@ module.exports = function(grunt) {
           compress: true,
         },
         files: {
-          'public/css/styles.css': 'app/assets/less/styles.less'
+          'public/css/style.css': 'app/assets/less/style.less'
         }
       }
     },
