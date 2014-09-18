@@ -1,17 +1,24 @@
 'use strict';
 
 var express = require('express'),
+    session = require('express-session'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    hbs = require('express-hbs');
+    hbs = require('express-hbs'),
+    passport = require('passport');
 
 module.exports = function(app, config){
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
   app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
   app.use(cookieParser());
+  app.use(session({
+    secret: 'key',
+    saveUninitialized: true,
+    resave: true
+  }));
 
   require('../routes/')(app);
 
@@ -29,6 +36,10 @@ module.exports = function(app, config){
   app.use(logger('dev'));
 
   app.use(express.static(config.root + '/public'));
+
+  //passport
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   /// catch 404 and forward to error handler
   app.use(function(req, res, next) {
