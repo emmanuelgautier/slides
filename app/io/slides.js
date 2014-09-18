@@ -16,7 +16,7 @@ module.exports = function(io) {
         user[socket.id].id = user;
       })
       .on('room', function(room) {
-        user[socket.id].room[room];
+        user[socket.id].room[room] = {};
 
         socket.join(room);
       })
