@@ -5,25 +5,13 @@ var path = require('path'),
     env = process.env.NODE_ENV || 'development';
 
 var config = {
-  development: {
-    env: 'development',
-    root: rootPath,
-    app: {
-      name: 'slides'
-    },
-    port: 3000,
-    db: 'mongodb://localhost/slides',
+  env: env,
+  root: rootPath,
+  app: {
+    name: 'slides',
   },
-
-  production: {
-    env: 'production',
-    root: rootPath,
-    app: {
-      name: 'slides',
-    },
-    port: 3000,
-    db: 'mongodb://localhost/slides',
-  }
+  port: 3000,
+  db: 'mongodb://localhost/slides'
 };
 
-module.exports = config[env];
+module.exports = config;
