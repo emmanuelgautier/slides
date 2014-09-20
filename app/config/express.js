@@ -6,8 +6,7 @@ var express = require('express'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    hbs = require('express-hbs'),
-    passport = require('passport');
+    hbs = require('express-hbs');
 
 module.exports = function(app, config){
   app.use(bodyParser.urlencoded({ extended: true }));
@@ -36,10 +35,6 @@ module.exports = function(app, config){
   app.use(logger('dev'));
 
   app.use(express.static(config.root + '/public'));
-
-  //passport
-  app.use(passport.initialize());
-  app.use(passport.session());
 
   /// catch 404 and forward to error handler
   app.use(function(req, res, next) {

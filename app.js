@@ -7,6 +7,7 @@ var express = require('express'),
 
 require('./app/config/db')(config);
 require('./app/config/express')(app, config);
+require('./app/config/passport')(app, config);
 
 var server = app.listen(app.get('port'), function() {
   console.log('Express server listening on port', server.address().port);

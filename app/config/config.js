@@ -11,7 +11,19 @@ var config = {
     name: 'slides',
   },
   port: 3000,
-  db: 'mongodb://localhost/slides'
+  db: 'mongodb://localhost/slides',
+  passport: {
+    google: {
+      clientID: null,
+      clientSecret: null,
+      callbackURL: 'http://127.0.0.1:3000/auth/google/callback'
+    },
+    github: {
+      clientID: null,
+      clientSecret: null,
+      callbackURL: 'http://127.0.0.1:3000/auth/github/callback'
+    }
+  }
 };
 
 module.exports = config;
