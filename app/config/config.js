@@ -1,5 +1,7 @@
 'use strict';
 
+/*jshint maxlen: 1000 */
+
 var path = require('path'),
     rootPath = path.normalize(__dirname + '/../..'),
     env = process.env.NODE_ENV || 'development';
@@ -16,7 +18,8 @@ var config = {
     google: {
       clientID: null,
       clientSecret: null,
-      callbackURL: 'http://127.0.0.1:3000/auth/google/callback'
+      callbackURL: 'http://127.0.0.1:3000/auth/google/callback',
+      scope: 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/userinfo.email'
     },
     github: {
       clientID: null,
