@@ -36,7 +36,11 @@ var fn = {
   }
 };
 
-exports.create = function(req, res, next) {
+exports.create = function(req, res) {
+  res.render('room/create');
+};
+
+exports.saveCreate = function(req, res, next) {
   fn.create(req, next, function(room){
     res.redirect('/room/' + room.token);
   });
