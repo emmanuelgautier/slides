@@ -61,7 +61,6 @@ exports.show = function(req, res, next) {
 
 exports.api = {
   create: function(req, res, next){
-    console.log(req.body.name);
     fn.create(req, next, function(room) {
       res.json({token: room.token});
     });
