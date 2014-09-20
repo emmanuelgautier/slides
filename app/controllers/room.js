@@ -37,11 +37,17 @@ var fn = {
 };
 
 exports.create = function(req, res) {
-  res.render('room/create');
+  if (!req.isAuthenticated()) { res.redirect('/'); }
+
+  res.render('room/create', {
+    user: req.user || null
+  });
 };
 
 exports.saveCreate = function(req, res, next) {
-  fn.create(req, next, function(room){
+  if (!req.isAuthenticated()) { res.redirect('/'); }
+
+  fn.create(req, next, function(room) {
     res.redirect('/room/' + room.token);
   });
 };
@@ -49,6 +55,7 @@ exports.saveCreate = function(req, res, next) {
 exports.list = function(req, res, next) {
   fn.list(next, function(rooms){
     res.render('rooms/list', {
+      user: req.user || null,
       rooms: rooms
     });
   });
@@ -58,6 +65,7 @@ exports.show = function(req, res, next) {
   fn.show(req, next, function(room){
     res.render('room/show', {
       title: room.name,
+      user: req.user || null,
       room: room
     });
   });
@@ -65,6 +73,8 @@ exports.show = function(req, res, next) {
 
 exports.api = {
   create: function(req, res, next){
+    if (!req.isAuthenticated()) { res.send(401); }
+
     fn.create(req, next, function(room) {
       res.json({token: room.token});
     });

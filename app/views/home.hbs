@@ -1,4 +1,10 @@
 {{!< main}}
 
-<a href="room/create">Créer votre salle</a>
 <a href="room/">Liste des salles</a>
+{{#if user}}
+<a href="room/create">Créer votre salle</a>
+<a href="/logout">Logout</a>
+{{else}}
+<a href="/login">Login</a>
+<a href="/register">Register</a>
+{{/if}}
