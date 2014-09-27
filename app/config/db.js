@@ -7,6 +7,8 @@ var path = require('path'),
     clean = function() {
       // Cleaning database when developing
       mongoose.model('Room').remove({}, function(err) {
+        if(err) { throw err; }
+
         mongoose.model('User').remove({}, function(err) {
           if (err) { throw err; }
           console.log('Database cleaned.');
