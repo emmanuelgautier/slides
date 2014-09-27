@@ -8,7 +8,6 @@ var mongoose = require('mongoose'),
 
 var UserSchema = new Schema({
   provider: String,
-  id: String,
   username: String,
   password: String,
   displayName: String,

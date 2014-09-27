@@ -53,7 +53,6 @@ exports.authenticate = {
 
 exports.register = function(req, res) {
   var user = new User();
-    user.id = Math.random() * Math.pow(10, 10);
     user.username = req.param('username');
     user.password = req.param('password');
 
