@@ -16,7 +16,7 @@ var RoomSchema = new Schema({
   description: { type: String},
   public: { type: Boolean, default: true },
   token: { type: String, index: { unique: true }, default: generateToken },
-  master: { type: String, select: false, default: generateToken },
+  master: { type: String, select: false },
   createdAt: { type: Date, default: Date.now }
 });
 

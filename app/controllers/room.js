@@ -8,6 +8,7 @@ var fn = {
     var room = new Room();
       room.name = req.param('name');
       room.description = 'A new room';
+      room.master = req.user.id;
       room.save(function(err, room){
         if (err) {
           next(new Error('Something wrong happened while creating your room'));

@@ -8,7 +8,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     hbs = require('express-hbs');
 
-module.exports = function(app, config) {
+module.exports = function(app, sessionStore, config) {
   app.use(favicon( config.root + '/public/favicon.ico'));
   app.use(logger('dev'));
 
@@ -19,6 +19,7 @@ module.exports = function(app, config) {
   app.use(bodyParser.json());
   app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
   app.use(session({
+    store: sessionStore,
     secret: 'key',
     saveUninitialized: true,
     resave: true

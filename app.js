@@ -3,10 +3,16 @@
 var express = require('express'),
     config = require('./app/config/config'),
 
+    session = require('express-session'),
+    MongoStore = require('connect-mongo')(session),
+    sessionStore = new MongoStore({
+      db: 'slides',
+    }),
+
     app = express();
 
 require('./app/config/db')(config);
-require('./app/config/express')(app, config);
+require('./app/config/express')(app, sessionStore, config);
 require('./app/config/passport')(app, config);
 require('./app/routes/')(app);
 
@@ -53,4 +59,4 @@ var server = app.listen(app.get('port'), function() {
   console.log('Express server listening on port', server.address().port);
 });
 
-require('./app/config/io')(server, config);
+require('./app/config/io')(server, sessionStore, config);
