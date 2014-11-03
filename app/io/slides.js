@@ -36,7 +36,9 @@ module.exports = function(io, sessionStore) {
     socket
       .on('room', function(roomToken) {
         if(!_room[roomToken]) {
-          Room.findOne({ token: roomToken }).select('+master').exec(function(err, room) {
+          Room.findOne({ 
+            token: roomToken 
+          }).select('+master').exec(function(err, room) {
             if(room) {
               _room[roomToken] = room;
               _user[socket.id].room[roomToken] = {};
