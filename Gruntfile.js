@@ -56,7 +56,7 @@ module.exports = function(grunt) {
     less: {
       dev: {
         options: {
-          paths: ['app/assets/less', 'bower_components/bootstrap/less/'],
+          paths: ['app/assets/less', 'bower_components'],
           compress: true,
         },
         files: {
