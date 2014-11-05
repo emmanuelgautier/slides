@@ -38,7 +38,7 @@ var fn = {
 };
 
 exports.create = function(req, res) {
-  if (!req.isAuthenticated()) { res.redirect('/'); }
+  if(!req.user){ return res.redirect('/login'); }
 
   res.render('room/create', {
     user: req.user || null
@@ -46,7 +46,7 @@ exports.create = function(req, res) {
 };
 
 exports.saveCreate = function(req, res, next) {
-  if (!req.isAuthenticated()) { res.redirect('/'); }
+  if(!req.user){ return res.redirect('/login'); }
 
   fn.create(req, next, function(room) {
     res.redirect('/room/' + room.token);
@@ -73,8 +73,8 @@ exports.show = function(req, res, next) {
 };
 
 exports.api = {
-  create: function(req, res, next){
-    if (!req.isAuthenticated()) { res.send(401); }
+  create: function(req, res, next) {
+    if (!req.user) { res.send(401); }
 
     fn.create(req, next, function(room) {
       res.json({ token: room.token });
