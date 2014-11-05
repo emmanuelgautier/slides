@@ -55,7 +55,7 @@ exports.saveCreate = function(req, res, next) {
 
 exports.list = function(req, res, next) {
   fn.list(next, function(rooms){
-    res.render('rooms/list', {
+    res.render('room/list', {
       user: req.user || null,
       rooms: rooms
     });
