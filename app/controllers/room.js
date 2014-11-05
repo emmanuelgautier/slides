@@ -1,7 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    Room = mongoose.model('Room');
+    Room     = mongoose.model('Room');
 
 var fn = {
   create: function(req, next, callback) {
@@ -54,7 +54,7 @@ exports.saveCreate = function(req, res, next) {
 };
 
 exports.list = function(req, res, next) {
-  fn.list(next, function(rooms){
+  fn.list(next, function(rooms) {
     res.render('room/list', {
       user: req.user || null,
       rooms: rooms
@@ -63,7 +63,7 @@ exports.list = function(req, res, next) {
 };
 
 exports.show = function(req, res, next) {
-  fn.show(req, next, function(room){
+  fn.show(req, next, function(room) {
     res.render('room/show', {
       title: room.name,
       user: req.user || null,
@@ -77,17 +77,17 @@ exports.api = {
     if (!req.isAuthenticated()) { res.send(401); }
 
     fn.create(req, next, function(room) {
-      res.json({token: room.token});
+      res.json({ token: room.token });
     });
   },
 
-  list: function(req, res, next){
+  list: function(req, res, next) {
     fn.list(next, function(rooms) {
       res.json(rooms);
     });
   },
 
-  show: function(req, res, next){
+  show: function(req, res, next) {
     fn.show(req, next, function(room) {
       res.json(room);
     });

@@ -1,10 +1,10 @@
 'use strict';
 
-var express = require('express'),
-    config = require('./app/config/config'),
+var express      = require('express'),
+    config       = require('./app/config/config'),
 
-    session = require('express-session'),
-    MongoStore = require('connect-mongo')(session),
+    session      = require('express-session'),
+    MongoStore   = require('connect-mongo')(session),
     sessionStore = new MongoStore({
       db: 'slides',
     }),

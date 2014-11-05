@@ -1,11 +1,11 @@
 'use strict';
 
-var fs = require('fs'),
-    path = require('path'),
+var fs     = require('fs'),
+    path   = require('path'),
 
     router = {};
 
-module.exports = function(app){
+module.exports = function(app) {
   fs.readdirSync(__dirname)
     .filter(function(file) {
       return ((file.indexOf('.') !== 0) && 

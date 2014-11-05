@@ -1,9 +1,9 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    Room = mongoose.model('Room'),
+    Room     = mongoose.model('Room'),
 
-    cookie = require('cookie');
+    cookie   = require('cookie');
 
 module.exports = function(io, sessionStore) {
   var _user = {},
@@ -12,7 +12,7 @@ module.exports = function(io, sessionStore) {
 
       slidesNsp = io.of('/slides');
 
-  slidesNsp.on('connection', function(socket){
+  slidesNsp.on('connection', function(socket) {
     _user[socket.id] = {
       id: null,
       room: {}

@@ -1,9 +1,9 @@
 'use strict';
 
 var express = require('express'),
-    router = express.Router();
+    router  = express.Router();
 
-var room = require('../controllers/room');
+var room 	= require('../controllers/room');
 
 router
   .get('/', room.list)

@@ -3,7 +3,7 @@
 module.exports = function(io) {
   var chatNsp = io.of('/chat');
 
-  chatNsp.on('connection', function(socket){
+  chatNsp.on('connection', function(socket) {
     socket
       .on('room', function(room) {
         socket.join(room);

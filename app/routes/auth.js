@@ -1,11 +1,11 @@
 'use strict';
 
-var express = require('express'),
-    router = express.Router(),
+var express  = require('express'),
+    router   = express.Router(),
 
-    passport = require('passport');
+    passport = require('passport'),
 
-var auth = require('../controllers/auth');
+    auth     = require('../controllers/auth');
 
 router
   .get('/register', function(req, res) {

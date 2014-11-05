@@ -1,14 +1,14 @@
 'use strict';
 
-var passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy,
+var passport       = require('passport'),
+    LocalStrategy  = require('passport-local').Strategy,
     GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
     GitHubStrategy = require('passport-github').Strategy,
 
-    mongoose = require('mongoose'),
-    User = mongoose.model('User'),
+    mongoose       = require('mongoose'),
+    User           = mongoose.model('User'),
 
-    auth = require('../controllers/auth');
+    auth           = require('../controllers/auth');
 
 module.exports = function(app, config) {
   passport.use(new LocalStrategy(auth.authenticate.local));

@@ -1,8 +1,8 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    crypto = require('crypto'),
-    Schema = mongoose.Schema,
+    crypto   = require('crypto'),
+    Schema   = mongoose.Schema,
 
     //génération d'un hash à partir de la date et d'un nombre aléatoire
     generateToken = function() {

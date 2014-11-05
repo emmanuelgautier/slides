@@ -1,7 +1,7 @@
 'use strict';
 
-var path = require('path'),
-    fs = require('fs'),
+var path     = require('path'),
+    fs       = require('fs'),
     mongoose = require('mongoose'),
 
     clean = function() {

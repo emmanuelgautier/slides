@@ -1,12 +1,12 @@
 'use strict';
 
-var express = require('express'),
-    session = require('express-session'),
-    favicon = require('serve-favicon'),
-    logger = require('morgan'),
+var express      = require('express'),
+    session      = require('express-session'),
+    favicon      = require('serve-favicon'),
+    logger       = require('morgan'),
     cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser'),
-    hbs = require('express-hbs');
+    bodyParser   = require('body-parser'),
+    hbs          = require('express-hbs');
 
 module.exports = function(app, sessionStore, config) {
   app.use(favicon( config.root + '/public/favicon.ico'));
