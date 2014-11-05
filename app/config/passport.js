@@ -12,10 +12,12 @@ var passport       = require('passport'),
 
 module.exports = function(app, config) {
   passport.use(new LocalStrategy(auth.authenticate.local));
+
   passport.use(new GoogleStrategy(
     config.passport.google,
     auth.authenticate.google
   ));
+
   passport.use(new GitHubStrategy(
     config.passport.github,
     auth.authenticate.github
