@@ -15,9 +15,10 @@ router
   .get('/login', function(req, res) {
     res.render('auth/login');
   })
-  .post('/login', passport.authenticate('local'), function(req, res) {
-    res.redirect('/');
-  })
+  .post('/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login'
+  }))
 
   .get('/auth/google', passport.authenticate('google'))
   .get('/auth/google/callback', passport.authenticate('google', {
