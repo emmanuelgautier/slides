@@ -19,6 +19,13 @@ module.exports = function(app, sessionStore, config) {
   app.use(bodyParser.json());
   app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
   app.use(session({
+    name: 'sid',
+    cookie: { 
+      path: '/',
+      httpOnly: true,
+      secure: false,
+      maxAge: 3600
+    },
     store: sessionStore,
     secret: 'key',
     saveUninitialized: true,
