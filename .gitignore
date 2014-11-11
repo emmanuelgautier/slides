@@ -18,6 +18,6 @@ node_modules
 .idea
 
 bower_components
-public/js/*
+public/lib/*
 public/css/*
 public/fonts/*

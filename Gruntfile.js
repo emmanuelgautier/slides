@@ -12,29 +12,23 @@ module.exports = function(grunt) {
         src: '*',
         dest: 'public/fonts/'
       },
-      assetsJs: {
-        expand: true,
-        cwd: 'app/assets/js/',
-        src: '*.js',
-        dest: 'public/js/'
-      },
       components: {
         expand: true,
         cwd: 'bower_components/',
         src: [
           'angular/angular.min.{js,js.map}',
-          'angular-*/angular-*.min.{js,js.map}',
+          'angular-*/angular-*.min.{js,*.js.map}',
           'jquery/dist/jquery.min.js',
           'modernizr/modernizr.js'
         ],
         flatten: true,
-        dest: 'public/js/'
+        dest: 'public/lib/'
       },
       socketIO: {
         expand: true,
         cwd: 'node_modules/socket.io-client/',
         src: 'socket.io.js',
-        dest: 'public/js/'
+        dest: 'public/lib/'
       }
     },
 
@@ -69,13 +63,6 @@ module.exports = function(grunt) {
       assetsLess: {
         files: ['app/assets/less/*.less'],
         tasks: ['less:dev'],
-        options: {
-          livereload: true
-        }
-      },
-      assetsJs: {
-        files: ['app/assets/js/*.js'],
-        tasks: ['copy:assetsJs'],
         options: {
           livereload: true
         }
