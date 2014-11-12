@@ -91,5 +91,13 @@ exports.api = {
     fn.show(req, next, function(room) {
       res.json(room);
     });
+  },
+
+  update: function() {
+    //
+  },
+
+  delete: function() {
+    //
   }
 };
