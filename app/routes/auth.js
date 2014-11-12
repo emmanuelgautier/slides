@@ -9,11 +9,11 @@ var express  = require('express'),
 
 router
   .get('/register', function(req, res) {
-    res.render('auth/register');
+    res.render('auth/register', { noangular: true });
   })
   .post('/register', auth.register)
   .get('/login', function(req, res) {
-    res.render('auth/login');
+    res.render('auth/login', { noangular: true });
   })
   .post('/login', passport.authenticate('local', {
     successRedirect: '/',

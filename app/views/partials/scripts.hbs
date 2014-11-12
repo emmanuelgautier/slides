@@ -1,5 +1,6 @@
 <!--[if lte IE 7]><script src="/lib/json2.js"></script><![endif]-->
 <script type="text/javascript" src="/lib/modernizr.js"></script>
+{{#unless noangular}}
 <script>
     //@@NG_LOADER_START@@
 /*
@@ -45,3 +46,4 @@ b=c(b,"angular",Object);b.$minErr=b.$minErr||d;return c(b,"module",function(){va
         angular.bootstrap(document, ['slides']);
     });
 </script>
+{{/unless}}
