@@ -6,11 +6,11 @@ var express = require('express'),
     room 	= require('../controllers/room');
 
 router
-  .get('/room/', room.api.list)
-  .post('/room/', room.api.create)
-  .get('/room/:token', room.api.show);
-  //.put('/room/:token', room.api.update),
-  //.delete('/room/:token', room.api.delete);
+  .get('/rooms/',          room.api.list)
+  .post('/rooms/',         room.api.create)
+  .get('/rooms/:token',    room.api.show)
+  .put('/rooms/:token',    room.api.update)
+  .delete('/rooms/:token', room.api.delete);
 
 module.exports = {
   use: '/api',
