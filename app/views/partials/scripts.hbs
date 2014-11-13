@@ -43,6 +43,7 @@ b=c(b,"angular",Object);b.$minErr=b.$minErr||d;return c(b,"module",function(){va
         '/js/controllers/rooms.js',
         '/js/routes.js'
     ], function() {
+        {{#if user}} window.user = "{{user._id}}"; {{/if}}
         angular.bootstrap(document, ['slides']);
     });
 </script>

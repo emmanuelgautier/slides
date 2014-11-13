@@ -2,27 +2,53 @@
 
 angular.module('slides').config(['$routeProvider', '$locationProvider',
   function($routeProvider, $locationProvider) {
-    $routeProvider.
-      when('/', {
+    window.routes = {
+      '/': {
         templateUrl: '/partials/home.html'
-      }).
-      when('/rooms', {
+      },
+
+      '/rooms': {
         templateUrl: '/partials/room/list.html'
-      }).
-      when('/room/create', {
-        templateUrl: '/partials/room/create.html'
-      }).
-      when('/room/:token', {
+      },
+
+      '/room/create': {
+        templateUrl: '/partials/room/create.html',
+        filter: {
+          auth: true
+        }
+      },
+
+      '/room/:token': {
         templateUrl: '/partials/room/show.html'
-      }).
-      otherwise({
-        redirectTo: '/'
-      });
+      }
+    };
+
+    for(var path in window.routes) {
+      $routeProvider.when(path, window.routes[path]);
+    }
+
+    $routeProvider.otherwise({ redirectTo: '/' });
   }
 ]);
 
-angular.module('slides').config(['$locationProvider',
+angular.module('slides').config(['$locationProvider', 
     function($locationProvider) {
         $locationProvider.hashPrefix('!');
-    }]
-);
+    }
+]);
+
+angular.module('slides').run(['$rootScope', '$auth',
+  function ($rootScope, $auth) {
+    $rootScope.$on("$locationChangeStart", function(event, next, current) {
+      for(var i in window.routes) {
+        if(next.indexOf(i) != -1) {
+          if(window.routes[i].filter && window.routes[i].filter.auth && !$auth.isAuthenticated()) {
+            window.location = '/login';
+
+            event.preventDefault();
+          }
+        }
+      }
+    });
+  }
+]);
