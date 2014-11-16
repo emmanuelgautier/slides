@@ -40,7 +40,8 @@ module.exports = function(grunt) {
         'app/models/*.js',
         'app/routes/*.js',
         'app/controllers/*.js',
-        'app/io/*.js'
+        'app/io/*.js',
+        'app/validators/*.js'
       ],
       options: {
         jshintrc: '.jshintrc'
@@ -69,11 +70,14 @@ module.exports = function(grunt) {
       },
       jshint: {
         files: [
-          'Gruntfile.js',
-          'app.js',
-          'app/config/*.js',
-          'app/models/*.js',
-          'app/routes/*.js'
+        'Gruntfile.js',
+        'app.js',
+        'app/config/*.js',
+        'app/models/*.js',
+        'app/routes/*.js',
+        'app/controllers/*.js',
+        'app/io/*.js',
+        'app/validators/*.js'
         ],
         tasks: ['jshint:dev'],
         options: {

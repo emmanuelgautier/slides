@@ -1,10 +1,22 @@
 'use strict';
 
-var mongoose = require('mongoose'),
-    User     = mongoose.model('User');
+var mongoose          = require('mongoose'),
+    User              = mongoose.model('User'),
+
+    loginValidator    = require('../validators/login'),
+    registerValidator = require('../validators/register');
 
 exports.authenticate = {
   local: function(username, password, done) {
+    var validateStatement = loginValidator.validate({
+      username: username,
+      password: password
+    });
+
+    if(validateStatement.error === true) {
+      return done(null, validateStatement.messages);
+    }
+
     User.findOne({ username: username }, function(err, user) {
       if (err) { return done(err); }
 
@@ -52,6 +64,16 @@ exports.authenticate = {
 };
 
 exports.register = function(req, res) {
+  var validateStatement = registerValidator.validate(req.params);
+
+  if(validateStatement.error === true) {
+    res.render('auth/register', {
+      noangular: true,
+      errors: validateStatement.messages 
+    });
+    return;
+  }
+
   var user = new User();
     user.username = req.param('username');
     user.password = req.param('password');
