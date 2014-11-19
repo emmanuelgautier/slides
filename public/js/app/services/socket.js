@@ -1,6 +1,7 @@
-'use strict';
+define(['socketio'], function(io) {
+  'use strict';
 
-angular.module('slides').factory('$socket', function ($rootScope) {
+  return ['$rootScope', function ($rootScope) {
     var $socket = function(namespace) {
       var socket = io('/' + namespace),
 
@@ -27,6 +28,7 @@ angular.module('slides').factory('$socket', function ($rootScope) {
           on: function (eventName, callback) {
             return socket.on(eventName, function () {
               var args = arguments;
+
               $rootScope.$apply(function () {
                 callback.apply(socket, args);
               });
@@ -40,6 +42,7 @@ angular.module('slides').factory('$socket', function ($rootScope) {
 
             return socket.emit(eventName, data, function () {
               var args = arguments;
+
               $rootScope.$apply(function () {
                 if (callback) {
                   callback.apply(socket, args);
@@ -55,11 +58,11 @@ angular.module('slides').factory('$socket', function ($rootScope) {
             return socket.emit('room', room);
           }
         }
-      };
+    };
 
     return {
       chat: $socket('chat'),
       slides: $socket('slides')
     };
-  }
-);
+  }];
+});

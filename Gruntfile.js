@@ -16,19 +16,20 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'bower_components/',
         src: [
-          'angular/angular.min.{js,js.map}',
-          'angular-*/angular-*.min.{js,*.js.map}',
-          'jquery/dist/jquery.min.js',
-          'modernizr/modernizr.js'
+          'angular/angular.{js,js.map}',
+          'angular-*/angular-*.{js,*.js.map}',
+          'jquery/dist/jquery.js',
+          'modernizr/modernizr.js',
+          'requirejs/require.js'
         ],
         flatten: true,
-        dest: 'public/lib/'
+        dest: 'public/js/lib/'
       },
       socketIO: {
         expand: true,
         cwd: 'node_modules/socket.io-client/',
         src: 'socket.io.js',
-        dest: 'public/lib/'
+        dest: 'public/js/lib/'
       }
     },
 
@@ -58,6 +59,10 @@ module.exports = function(grunt) {
           'public/css/style.css': 'app/assets/less/style.less'
         }
       }
+    },
+
+    requirejs: {
+
     },
 
     watch: {
@@ -90,8 +95,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', ['less:dev', 'jshint:dev', 'copy', 'watch']);
-  grunt.registerTask('prod', ['less']);
+  grunt.registerTask('prod', ['less', 'jshint', 'copy', 'requirejs']);
 };
