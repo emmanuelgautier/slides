@@ -11,10 +11,10 @@ var express      = require('express'),
 
     app = express();
 
-require('./app/config/db')(config);
-require('./app/config/express')(app, sessionStore, config);
-require('./app/config/passport')(app, config);
-require('./app/routes/')(app);
+require(config.root + '/app/config/db')(config);
+require(config.root + '/app/config/express')(app, sessionStore, config);
+require(config.root + '/app/config/passport')(app, config);
+require(config.root + '/app/routes/')(app);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -59,4 +59,4 @@ var server = app.listen(app.get('port'), function() {
   console.log('Express server listening on port', server.address().port);
 });
 
-require('./app/config/io')(server, sessionStore, config);
+require(config.root + '/app/config/io')(server, sessionStore, config);

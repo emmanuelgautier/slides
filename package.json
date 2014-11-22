@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.0.2",
+    "binaryjs": "^0.2.1",
     "body-parser": "^1.6.5",
     "connect": "^3.2.0",
     "connect-mongo": "^0.4.1",
