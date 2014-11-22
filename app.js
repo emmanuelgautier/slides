@@ -6,7 +6,7 @@ var express      = require('express'),
     session      = require('express-session'),
     MongoStore   = require('connect-mongo')(session),
     sessionStore = new MongoStore({
-      db: 'slides',
+      db: 'slides'
     }),
 
     app = express();
