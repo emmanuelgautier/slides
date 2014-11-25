@@ -26,6 +26,10 @@ var config = {
       clientSecret: null,
       callbackURL: null
     }
+  },
+  peer: {
+    path: '/stream',
+    options: {}
   }
 };
 
