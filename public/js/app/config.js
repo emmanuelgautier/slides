@@ -7,22 +7,22 @@ define([], function() {
 
       window.routes = {
         '/': {
-          templateUrl: '/partials/home.html'
+          templateUrl: '/views/home.html'
         },
 
         '/rooms': {
-          templateUrl: '/partials/room/list.html'
+          templateUrl: '/views/room/list.html'
         },
 
         '/room/create': {
-          templateUrl: '/partials/room/create.html',
+          templateUrl: '/views/room/create.html',
           filter: {
             auth: true
           }
         },
 
         '/room/:token': {
-          templateUrl: '/partials/room/show.html'
+          templateUrl: '/views/room/show.html'
         }
       };
 
