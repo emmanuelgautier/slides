@@ -1,3 +1,9 @@
 {{!< main}}
 
-<div ng-view></div>
+<div ng-include="'/js/app/views/partials/header.html'"></div>
+
+<div class="main">
+    <div ng-view></div>
+</div>
+
+<div ng-include="'/js/app/views/partials/footer.html'"></div>
