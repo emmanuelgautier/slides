@@ -41,7 +41,7 @@ exports.create = function(req, res) {
   if(!req.user){ return res.redirect('/login'); }
 
   res.render('room/create', {
-    user: req.user || null
+    user: req.user
   });
 };
 
@@ -56,7 +56,7 @@ exports.saveCreate = function(req, res, next) {
 exports.list = function(req, res, next) {
   fn.list(next, function(rooms) {
     res.render('room/list', {
-      user: req.user || null,
+      user: req.user,
       rooms: rooms
     });
   });
@@ -66,7 +66,7 @@ exports.show = function(req, res, next) {
   fn.show(req, next, function(room) {
     res.render('room/show', {
       title: room.name,
-      user: req.user || null,
+      user: req.user,
       room: room
     });
   });
