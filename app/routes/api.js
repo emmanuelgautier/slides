@@ -3,14 +3,14 @@
 var express = require('express'),
     router  = express.Router(),
 
-    room 	= require('../controllers/room');
+    room    = require('../controllers/api/room');
 
 router
-  .get('/rooms/',          room.api.list)
-  .post('/rooms/',         room.api.create)
-  .get('/rooms/:token',    room.api.show)
-  .put('/rooms/:token',    room.api.update)
-  .delete('/rooms/:token', room.api.delete);
+  .get('/rooms/',          room.list)
+  .get('/rooms/:token',    room.show)
+  .post('/rooms/',         room.create)
+  .put('/rooms/:token',    room.update)
+  .delete('/rooms/:token', room.delete);
 
 module.exports = {
   use: '/api',
