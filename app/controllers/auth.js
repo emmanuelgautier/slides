@@ -13,8 +13,8 @@ exports.authenticate = {
       password: password
     });
 
-    if(validateStatement.error === true) {
-      return done(null, validateStatement.messages);
+    if(validateStatement !== null) {
+      return done(null, false, { message: validateStatement });
     }
 
     User.findOne({ username: username }, function(err, user) {
@@ -64,12 +64,21 @@ exports.authenticate = {
 };
 
 exports.register = function(req, res) {
-  var validateStatement = registerValidator.validate(req.params);
+  /*jshint camelcase:false */
 
-  if(validateStatement.error === true) {
+  var validateStatement = registerValidator.validate({
+    username: req.param('username'),
+    email: req.param('email'),
+    password: req.param('password'),
+    password_confirmation: req.param('password_confirmation')
+  });
+
+  if(validateStatement !== null) {
+    req.flash('error', validateStatement);
+
     res.render('auth/register', {
       noangular: true,
-      errors: validateStatement.messages 
+      error: req.flash('error')
     });
     return;
   }

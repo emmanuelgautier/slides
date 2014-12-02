@@ -13,11 +13,12 @@ router
   })
   .post('/register', auth.register)
   .get('/login', function(req, res) {
-    res.render('auth/login', { noangular: true });
+    res.render('auth/login', { noangular: true, error: req.flash('error') });
   })
   .post('/login', passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/login'
+    failureRedirect: '/login',
+    failureFlash: true
   }))
 
   .get('/auth/google', passport.authenticate('google'))
