@@ -16,9 +16,11 @@ module.exports = function(app, sessionStore, config) {
   app.use(express.static(config.root + '/public'));
 
   app.use(cookieParser());
+
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
   app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+
   app.use(session({
     name: 'sid',
     cookie: { 
