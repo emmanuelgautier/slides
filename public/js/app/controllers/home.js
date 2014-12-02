@@ -1,9 +1,9 @@
 define([], function() {
   'use strict';
 
-  return ['$scope', '$location',
-    function($scope, $location) {
-      //
+  return ['$scope', '$location', 'Room',
+    function($scope, $location, Room) {
+      $scope.featuredRooms = Room.query();
     }
   ];
 });
