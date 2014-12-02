@@ -6,6 +6,7 @@ var express      = require('express'),
     logger       = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser   = require('body-parser'),
+    flash        = require('connect-flash'),
     hbs          = require('express-hbs');
 
 module.exports = function(app, sessionStore, config) {
@@ -31,6 +32,8 @@ module.exports = function(app, sessionStore, config) {
     saveUninitialized: true,
     resave: true
   }));
+
+  app.use(flash());
 
   app.set('view engine', 'hbs');
   app.set('views', config.root + '/app/views');
