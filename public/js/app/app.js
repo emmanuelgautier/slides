@@ -1,5 +1,5 @@
 define(['require', 'angular', 'app/config', 'app/run',
-  'app/services/auth', 'app/services/rooms', 'app/services/session', 'app/services/socket',
+  'app/services/auth', 'app/resources/rooms', 'app/services/session', 'app/services/socket',
   'app/controllers/home', 'app/controllers/rooms'],
   function(require, angular, config, run, $auth, Room, $session, $socket, HomeController, RoomsController) {
     'use strict';
