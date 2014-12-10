@@ -1,7 +1,17 @@
-define(['require', 'angular', 'app/config', 'app/run',
-  'app/services/auth', 'app/resources/rooms', 'app/services/session', 'app/services/socket',
-  'app/controllers/home', 'app/controllers/rooms'],
-  function(require, angular, config, run, $auth, Room, $session, $socket, HomeController, RoomsController) {
+define([
+    'require',
+    'angular',
+    'app/config',
+    'app/run',
+    'app/services/auth',
+    'app/services/session',
+    'app/services/socket',
+    'app/resources/rooms',
+    'app/controllers/home',
+    'app/controllers/rooms'
+  ],
+
+  function(require, angular, config, run, $auth, $session, $socket, Room, HomeController, RoomsController) {
     'use strict';
 
     var app = angular.module('slides', ['ngRoute', 'ngResource']);
