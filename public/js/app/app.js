@@ -7,28 +7,37 @@ define([
     'app/services/session',
     'app/services/socket',
     'app/resources/rooms',
+    'app/resources/users',
+    'app/controllers/app',
     'app/controllers/home',
     'app/controllers/rooms'
   ],
 
-  function(require, angular, config, run, $auth, $session, $socket, Room, HomeController, RoomsController) {
-    'use strict';
+  function(require, 
+    angular, config, run,
+    $auth, $session, $socket,
+    Room, User,
+    AppController, HomeController, RoomsController) {
 
-    var app = angular.module('slides', ['ngRoute', 'ngResource']);
+      'use strict';
 
-    app.config(config);
+      var app = angular.module('slides', ['ngRoute', 'ngResource']);
 
-    //load factories
-    app.factory('$auth', $auth)
-       .factory('$session', $session)
-       .factory('$socket', $socket)
-       .factory('Room', Room);
+      app.config(config);
 
-    app.controller('HomeController', HomeController)
-       .controller('RoomsController', RoomsController);
+      //load factories
+      app.factory('$auth', $auth)
+         .factory('$session', $session)
+         .factory('$socket', $socket)
+         .factory('Room', Room)
+         .factory('User', User);
 
-    app.run(run);
+      app.controller('AppController',   AppController)
+         .controller('HomeController',  HomeController)
+         .controller('RoomsController', RoomsController);
 
-    return app;
+      app.run(run);
+
+      return app;
   }
 );

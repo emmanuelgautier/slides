@@ -5,7 +5,7 @@ define([], function() {
     var $auth = {};
 
     $auth.isAuthenticated = function() {
-      return !!$session.user;
+      return !!$session.user._id;
     };
 
     return $auth;

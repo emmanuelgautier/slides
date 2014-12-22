@@ -11,13 +11,13 @@
               <a href="#" class="navbar-brand">Slides</a>
             </div>
             <div class="collapse navbar-collapse" id="slides-navbar">
-                <ul class="nav navbar-nav navbar-right" ng-if="auth.user">
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
+                <ul class="nav navbar-nav navbar-right" ng-show="$auth.isAuthenticated()">
+                    <li><a href="">{{$session.user.username}}</a></li>
+                    <li><a href="">My Slides</a></li>
                     <li><a href="/logout">Logout</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right" ng-else>
-                    <li><a href="/login">login</a></li>
+                <ul class="nav navbar-nav navbar-right" ng-hide="$auth.isAuthenticated()">
+                    <li><a href="/login">Login</a></li>
                     <li><a href="/register">Register</a></li>
                 </ul>
             </div>

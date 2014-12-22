@@ -14,14 +14,14 @@ define([], function() {
           templateUrl: '/views/room/list.html'
         },
 
-        '/room/create': {
+        '/rooms/create': {
           templateUrl: '/views/room/create.html',
           filter: {
             auth: true
           }
         },
 
-        '/room/:token': {
+        '/rooms/:token': {
           templateUrl: '/views/room/show.html'
         }
       };
