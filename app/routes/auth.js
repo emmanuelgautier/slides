@@ -27,17 +27,15 @@ router
 
   .get('/auth/google', passport.authenticate('google'))
   .get('/auth/google/callback', passport.authenticate('google', {
+    successRedirect: '/',
     failureRedirect: '/login' 
-  }), function(req, res) {
-    res.redirect('/');
-  })
+  }))
 
   .get('/auth/github', passport.authenticate('github'))
   .get('/auth/github/callback', passport.authenticate('github', {
-      failureRedirect: '/login' 
-  }), function(req, res) {
-    res.redirect('/');
-  })
+    successRedirect: '/',
+    failureRedirect: '/login' 
+  }))
 
   .get('/logout', auth.logout);
 
