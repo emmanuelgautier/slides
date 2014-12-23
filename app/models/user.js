@@ -6,6 +6,15 @@ var mongoose = require('mongoose'),
 
     SALT_WORK_FACTOR = 10;
 
+var UserEmailsSchema = new Schema({
+  value: String,
+  type: String
+});
+
+var UserPhotosSchema = new Schema({
+  value: String
+});
+
 var UserSchema = new Schema({
   provider: String,
   username: String,
@@ -16,14 +25,8 @@ var UserSchema = new Schema({
     givenName: String,
     middleName: String
   },
-  emails: [{
-    value: String,
-    type: String,
-
-  }],
-  photos: [{
-    value: String
-  }]
+  emails: [UserEmailsSchema],
+  photos: [UserPhotosSchema]
 });
 
 UserSchema.pre('save', function(next) {
