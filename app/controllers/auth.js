@@ -86,7 +86,7 @@ exports.register = function(req, res) {
   var user = new User();
     user.username    = req.param('username');
     user.displayName = user.username;
-    user.emails      = [{ value: req.param('email'), type: null }];
+    user.emails      = [{ value: req.param('email'), type: 'Primary' }];
     user.password    = req.param('password');
 
   user.save(function(err) {
