@@ -80,6 +80,7 @@ exports.register = function(req, res) {
       noangular: true,
       error: req.flash('error')
     });
+
     return;
   }
 
@@ -90,9 +91,16 @@ exports.register = function(req, res) {
     user.password    = req.param('password');
 
   user.save(function(err) {
-    if(!err) {
-      res.redirect('/login');
+    if(err) {
+      req.flash('error', 'An unknown error occured !');
+
+      res.render('auth/register', {
+        noangular: true,
+        error: req.flash('error')
+      });
     }
+
+    res.redirect('/login');
   });
 };
 
