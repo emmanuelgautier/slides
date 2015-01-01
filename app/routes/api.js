@@ -17,7 +17,12 @@ router
   .get('/users/',             user.list)
   .get('/users/me',           user.me)
   .get('/users/:username',    user.show)
-  .put('/users/:username',    user.update);
+  .put('/users/:username',    user.update)
+
+  .get('/users/:username/image',            user.image.show)
+  .get('/users/:username/image/gravatar',   user.image.gravatar)
+  .post('/users/:username/image',           user.image.create)
+  .get('/users/:username/image/album/:id',  user.image.album);
 
 module.exports = {
   use: '/api',

@@ -1,6 +1,8 @@
 'use strict';
 
-var mongoose          = require('mongoose'),
+var gravatar          = require('gravatar'),
+
+    mongoose          = require('mongoose'),
     User              = mongoose.model('User'),
 
     loginValidator    = require('../validators/login'),
@@ -84,11 +86,14 @@ exports.register = function(req, res) {
     return;
   }
 
+  var email = req.param('email');
+
   var user = new User();
     user.username    = req.param('username');
     user.displayName = user.username;
-    user.emails      = [{ value: req.param('email'), type: 'Primary' }];
+    user.emails      = [{ value: email, type: 'Primary' }];
     user.password    = req.param('password');
+    user.image       = gravatar.url(email, { s: '200', r: 'g', d: 'mm' });
 
   user.save(function(err) {
     if(err) {

@@ -26,6 +26,7 @@ var UserSchema = new Schema({
     middleName: String
   },
   emails: [UserEmailsSchema],
+  image: String,
   photos: [UserPhotosSchema]
 });
 
