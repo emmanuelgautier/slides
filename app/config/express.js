@@ -27,12 +27,12 @@ module.exports = function(app, sessionStore, config) {
       path: '/',
       httpOnly: true,
       secure: false,
-      maxAge: 3600
+      maxAge: 3600000
     },
     store: sessionStore,
     secret: 'key',
     saveUninitialized: true,
-    resave: true
+    resave: false
   }));
 
   app.use(flash());
