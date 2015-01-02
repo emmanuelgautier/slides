@@ -10,14 +10,15 @@ define([
     'app/resources/users',
     'app/controllers/app',
     'app/controllers/home',
-    'app/controllers/rooms'
+    'app/controllers/rooms',
+    'app/controllers/users',
   ],
 
   function(require, 
     angular, config, run,
     $auth, $session, $socket,
     Room, User,
-    AppController, HomeController, RoomsController) {
+    AppController, HomeController, RoomsController, UsersController) {
 
       'use strict';
 
@@ -34,7 +35,8 @@ define([
 
       app.controller('AppController',   AppController)
          .controller('HomeController',  HomeController)
-         .controller('RoomsController', RoomsController);
+         .controller('RoomsController', RoomsController)
+         .controller('UsersController', UsersController);
 
       app.run(run);
 

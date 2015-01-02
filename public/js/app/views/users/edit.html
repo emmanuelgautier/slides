@@ -1,0 +1,39 @@
+<section ng-controller="UsersController" ng-init="edit()">
+    <form novalidate ng-submit="saveEdit()" class="form-horizontal">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img ng-src="{{user.image}}" alt="{{user.displayName}}" title="{{user.displayName}}">
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Firstname</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" ng-model="user.name.givenName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Lastname</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" ng-model="user.name.familyName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" ng-model="user.emails[0].value">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-8">
+                            <button class="btn btn-lg" type="submit">Update</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <h2>Presentations</h2>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

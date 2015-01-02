@@ -1,8 +1,10 @@
 define([], function() {
   'use strict';
 
-  return ['$routeProvider', '$locationProvider', 
-    function($routeProvider, $locationProvider) {
+  return ['$httpProvider', '$routeProvider', '$locationProvider', 
+    function($httpProvider, $routeProvider, $locationProvider) {
+      $httpProvider.defaults.withCredentials = true;
+
       var rootPath = '/js/app';
 
       window.routes = {
@@ -23,6 +25,17 @@ define([], function() {
 
         '/rooms/:token': {
           templateUrl: '/views/room/show.html'
+        },
+
+        '/users/edit': {
+          templateUrl: '/views/users/edit.html',
+          filter: {
+            auth: true
+          }
+        },
+
+        '/users/:username': {
+          templateUrl: '/views/users/show.html'
         }
       };
 

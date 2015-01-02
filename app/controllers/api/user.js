@@ -30,7 +30,25 @@ exports.me = function(req, res) {
 };
 
 exports.update = function(req, res, next) {
-  //
+  if(!req.user) {
+    res.json({ 'unauthenticated': 'Your are not authenticated !' });
+
+    return;
+  }
+
+  req.user.name = req.user.name || {};
+    req.user.name.familyName = req.param('name').familyName || "";
+    req.user.name.givenName  = req.param('name').givenName  || "";
+
+  req.user.emails[0].value = req.param('emails')[0].value;
+
+  req.user.save(function(err) {
+    if(err) {
+      res.json({ 'error': 'An unknown error occured !' });
+    }
+
+    return;
+  });
 };
 
 exports.image = {
@@ -43,7 +61,7 @@ exports.image = {
 
     req.user.image = gravatar.url(email, { s: '200', r: 'g', d: 'mm' });
 
-    req.user.save(function(user) {
+    req.user.save(function(err) {
       res.json(user.image);
     });
   },
