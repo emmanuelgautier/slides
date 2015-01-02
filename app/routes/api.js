@@ -14,10 +14,10 @@ router
   .delete('/rooms/:token', room.delete);
 
 router
-  .get('/users/',             user.list)
-  .get('/users/me',           user.me)
-  .get('/users/:username',    user.show)
-  .put('/users/:username',    user.update)
+  .get('/users/',           user.list)
+  .get('/users/me',         user.me)
+  .get('/users/:username',  user.show)
+  .post('/users/',          user.update)
 
   .get('/users/:username/image',            user.image.show)
   .get('/users/:username/image/gravatar',   user.image.gravatar)
