@@ -61,10 +61,6 @@ module.exports = function(grunt) {
       }
     },
 
-    requirejs: {
-
-    },
-
     watch: {
       assetsLess: {
         files: ['app/assets/less/*.less'],
@@ -95,7 +91,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', ['less:dev', 'jshint:dev', 'copy', 'watch']);
