@@ -23,12 +23,7 @@ module.exports = function(app, sessionStore, config) {
 
   app.use(session({
     name: 'sid',
-    cookie: { 
-      path: '/',
-      httpOnly: true,
-      secure: false,
-      maxAge: 3600000
-    },
+    cookie: config.cookie,
     store: sessionStore,
     secret: 'key',
     saveUninitialized: true,

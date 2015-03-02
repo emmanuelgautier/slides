@@ -12,6 +12,12 @@ var config = {
   app: {
     name: 'slides',
   },
+  cookie: { 
+    path: '/',
+    httpOnly: true,
+    secure: false,
+    maxAge: 3600000
+  },
   port: 3000,
   db: 'mongodb://localhost/slides',
   passport: {
