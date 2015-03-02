@@ -60,4 +60,3 @@ var server = app.listen(app.get('port'), function() {
 });
 
 require(config.root + '/app/config/io')(server, sessionStore, config);
-require(config.root + '/app/config/peer')(app, server, sessionStore, config);
