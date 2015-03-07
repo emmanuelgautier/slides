@@ -5,6 +5,17 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
+    sass: {
+      options: {
+        includePaths: ['bower_components/foundation-apps/scss']
+      },
+      dist: {
+        files: {
+          'public/css/style.css': 'app/assets/scss/foundation.scss'
+        }
+      }
+    },
+
     copy: {
       fontawesome: {
         expand: true,
@@ -23,6 +34,24 @@ module.exports = function(grunt) {
           'requirejs/require.js'
         ],
         flatten: true,
+        dest: 'public/js/lib/'
+      },
+      foundationAppComponents: {
+        expand: true,
+        cwd: 'bower_components/foundation-apps/js/angular/components/',
+        src: ['**'],
+        dest: 'public/js/app/components/'
+      },
+      foundationAppServices: {
+        expand: true,
+        cwd: 'bower_components/foundation-apps/js/angular/services/',
+        src: ['**'],
+        dest: 'public/js/app/services/'
+      },
+      foundationAppVendor: {
+        expand: true,
+        cwd: 'bower_components/foundation-apps/js/angular/services/',
+        src: ['**'],
         dest: 'public/js/lib/'
       },
       socketIO: {
@@ -49,22 +78,10 @@ module.exports = function(grunt) {
       }
     },
 
-    less: {
-      dev: {
-        options: {
-          paths: ['app/assets/less', 'bower_components'],
-          compress: true,
-        },
-        files: {
-          'public/css/style.css': 'app/assets/less/style.less'
-        }
-      }
-    },
-
     watch: {
       assetsLess: {
-        files: ['app/assets/less/*.less'],
-        tasks: ['less:dev'],
+        files: ['app/assets/scss/*.scss'],
+        tasks: ['sass:dev'],
         options: {
           livereload: true
         }
@@ -88,11 +105,11 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['less:dev', 'jshint:dev', 'copy', 'watch']);
-  grunt.registerTask('prod', ['less', 'jshint', 'copy', 'requirejs']);
+  grunt.registerTask('default', ['sass', 'jshint:dev', 'copy', 'watch']);
+  grunt.registerTask('prod', ['sass', 'jshint', 'copy']);
 };
