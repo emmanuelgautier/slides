@@ -1,7 +1,7 @@
-define(['app/services/auth'], function() {
+define(['fastclick'], function(FastClick) {
   return ['$rootScope', '$auth',
     function ($rootScope, $auth) {
-      //FastClick.attach(document.body);
+      FastClick.attach(document.body);
 
       $rootScope.$on("$locationChangeStart", function(event, next, current) {
         for(var i in window.routes) {

@@ -5,8 +5,7 @@ require.config({
   maps: {},
   paths: {
     "angular": "lib/angular",
-    "angular-route": "lib/angular-route",
-    "angular-resource": "lib/angular-resource",
+
     "socketio": "lib/socket.io",
 
     "slideshow": "app/services/slideshow",
@@ -28,8 +27,8 @@ require.config({
   }
 });
 
-require(['angular', 'angular-resource', 'angular-route', 'app/app'], 
-  function(angular, angularRessource, angularRoute, app) {
+require(['angular', 'app/app'], 
+  function(angular, app) {
     'use strict';
 
     angular.bootstrap(document, ['slides']);

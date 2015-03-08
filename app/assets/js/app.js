@@ -33,7 +33,15 @@ define([
 
       var app = angular.module('slides', [
         'ngRoute',
-        'ngResource'
+        'ngResource',
+
+        'ui.router',
+        'ngAnimate',
+        'ngSVGAttributes',
+
+        'foundation',
+        'foundation.dynamicRouting',
+        'foundation.dynamicRouting.animations'
       ]);
 
       app.config(config);

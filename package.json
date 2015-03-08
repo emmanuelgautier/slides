@@ -2,10 +2,6 @@
   "name": "slides",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
-  },
   "dependencies": {
     "bcryptjs": "^2.0.2",
     "body-parser": "^1.11.0",
@@ -30,14 +26,17 @@
     "validator": "^3.28.0"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-concat": "^0.5.0",
-    "grunt-contrib-copy": "^0.5.0",
-    "grunt-contrib-cssmin": "^0.10.0",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-less": "^0.11.4",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-sass": "^0.18.1",
-    "shelljs": "^0.3.0"
+    "front-matter": "^0.2.0",
+    "gulp": "^3.8.10",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-concat": "^2.4.2",
+    "gulp-connect": "^2.2.0",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-ruby-sass": "^0.7.1",
+    "gulp-uglify": "^1.0.2",
+    "gulp-util": "^3.0.1",
+    "rimraf": "^2.2.8",
+    "run-sequence": "^1.0.2",
+    "through2": "^0.6.3"
   }
 }
