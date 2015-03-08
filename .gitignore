@@ -28,6 +28,8 @@ node_modules
 .lock-wscript
 
 bower_components
-public/js/lib/*
-public/css/*
-public/fonts/*
+
+public/components/
+public/js/
+public/css/
+public/fonts/
