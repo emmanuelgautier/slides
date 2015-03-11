@@ -8,7 +8,7 @@
 
 var gulp       = require('gulp'),
     $          = require('gulp-load-plugins')(),
-    rimraf     = require('rimraf'),
+    rimraf     = require('gulp-rimraf'),
     sequence   = require('run-sequence'),
     path       = require('path'),
     router     = require('./bower_components/foundation-apps/bin/gulp-dynamic-routing');
@@ -49,8 +49,9 @@ var appJS = [
 // 3. TASKS
 // - - - - - - - - - - - - - - -
 // Cleans build directories
-gulp.task('clean', function(cb) {
-  rimraf('./public/js', cb);
+gulp.task('clean', function() {
+  return gulp.src(['./public/{components,css,fonts,templates}'], { read: false })
+    .pipe(rimraf({ force: true }));
 });
 
 // Copies user-created files and Foundation assets
@@ -141,8 +142,14 @@ gulp.task('uglify', function() {
 });
 
 // Copies your app's page templates and generates URLs for them
-gulp.task('routing-templates', function() {
-
+gulp.task('routing-templates', ['copy'], function() {
+  return gulp.src('./app/assets/templates/**/*.html')
+    .pipe(router({
+      path: './public/js/app/routes.js',
+      root: '/'
+    }))
+    .pipe(gulp.dest('./public/templates'))
+  ;
 });
 
 // Builds your entire app once, without starting a server
