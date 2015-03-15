@@ -27,7 +27,6 @@ var foundationJS = [
   'bower_components/fastclick/lib/fastclick.js',
   'bower_components/viewport-units-buggyfill/viewport-units-buggyfill.js',
   'bower_components/tether/tether.js',
-  'bower_components/foundation-apps/js/vendor/**/*.js',
   'bower_components/foundation-apps/js/angular/**/*.js',
   '!bower_components/foundation-apps/js/angular/app.js'
 ];
