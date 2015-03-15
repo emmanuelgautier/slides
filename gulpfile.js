@@ -161,14 +161,11 @@ gulp.task('build', function() {
 // Default task: builds your app, starts a server, and recompiles assets when they change
 gulp.task('default', ['build'], function() {
   // Watch Sass
-  gulp.watch(['./client/assets/scss/**/*', './scss/**/*'], ['sass']);
+  gulp.watch(['./app/assets/scss/**/*'], ['sass']);
 
   // Watch JavaScript
-  gulp.watch(['./client/assets/js/**/*', './js/**/*'], ['uglify']);
+  gulp.watch(['./app/assets/js/**/*'], ['uglify', 'copy']);
 
   // Watch static files
-  gulp.watch(['./client/**/*.*', '!./client/templates/**/*.*', '!./client/assets/{scss,js}/**/*.*'], ['copy']);
-
-  // Watch app templates
-  gulp.watch(['./client/templates/**/*.html'], ['routing-templates']);
+  gulp.watch(['./app/assets/**/*.*', '!./app/assets/templates/**/*.*', '!./app/assets/{scss,js}/**/*.*'], ['copy']);
 });
