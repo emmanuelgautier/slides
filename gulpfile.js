@@ -77,7 +77,7 @@ gulp.task('copy', function() {
     .pipe(gulp.dest('./public/js/lib/'));
 
   // Socket.io
-  gulp.src(['./nodes_module/socket.io-client/socket.io.js'])
+  gulp.src(['./node_modules/socket.io-client/socket.io.js'])
     .pipe(gulp.dest('./public/js/lib/'));
 
   // Foundation's Angular partials
