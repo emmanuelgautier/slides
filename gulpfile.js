@@ -145,7 +145,7 @@ gulp.task('routing-templates', ['copy'], function() {
   return gulp.src('./app/assets/templates/**/*.html')
     .pipe(router({
       path: './public/js/app/routes.js',
-      root: '/'
+      root: 'app/assets'
     }))
     .pipe(gulp.dest('./public/templates'))
   ;
