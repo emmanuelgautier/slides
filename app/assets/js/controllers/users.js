@@ -1,13 +1,13 @@
 define([], function() {
   'use strict';
 
-  return ['$scope', '$routeParams', '$location', '$session', 'User',
-    function($scope, $routeParams, $location, $session, User) {
+  return ['$scope', '$stateParams', '$location', '$session', 'User',
+    function($scope, $stateParams, $location, $session, User) {
       $scope.show = function() {
-        if($routeParams.username === 'me') {
+        if($stateParams.username === 'me') {
           this.user = $session.user;
         } else {
-          this.user = User.get({username: $routeParams.username});
+          this.user = User.get({username: $stateParams.username});
         }
       };
 

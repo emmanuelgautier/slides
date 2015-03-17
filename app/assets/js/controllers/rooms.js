@@ -1,8 +1,8 @@
 define(['require', 'slideshow', 'slideshare'], function(require) {
   'use strict';
 
-  return ['$scope', '$routeParams', '$location', '$socket', 'Room',
-    function($scope, $routeParams, $location, $socket, Room) {
+  return ['$scope', '$stateParams', '$location', '$socket', 'Room',
+    function($scope, $stateParams, $location, $socket, Room) {
       $scope.list = function() {
         this.rooms = Room.query();
       };
@@ -18,7 +18,7 @@ define(['require', 'slideshow', 'slideshare'], function(require) {
       };
 
       $scope.show = function() {
-        this.room = Room.get({token: $routeParams.token}, function() {
+        this.room = Room.get({token: $stateParams.token}, function() {
           var slideshare = require('slideshare'),
               slideshow = require('slideshow')($socket.slides, slideshare);
 
