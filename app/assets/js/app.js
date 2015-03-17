@@ -31,38 +31,38 @@ define([
     RoomsController,
     UsersController
   ) {
-      'use strict';
+    'use strict';
 
-      var app = angular.module('slides', [
-        'ngRoute',
-        'ngResource',
+    var app = angular.module('slides', [
+      'ngRoute',
+      'ngResource',
 
-        'ui.router',
-        'ngAnimate',
+      'ui.router',
+      'ngAnimate',
 
-        //foundation
-        'foundation',
-        'foundation.dynamicRouting',
-        'foundation.dynamicRouting.animations'
-      ]);
+      //foundation
+      'foundation',
+      'foundation.dynamicRouting',
+      'foundation.dynamicRouting.animations'
+    ]);
 
-      app.config(config);
+    app.config(config);
 
-      //load factories
-      app.factory('$auth', $auth)
-         .factory('$session', $session)
-         .factory('$socket', $socket)
-         .factory('Room', Room)
-         .factory('User', User);
+    //load factories
+    app.factory('$auth', $auth)
+      .factory('$session', $session)
+      .factory('$socket', $socket)
+      .factory('Room', Room)
+      .factory('User', User);
 
-      //load controllers
-      app.controller('AppController', AppController)
-         .controller('HomeController', HomeController)
-         .controller('RoomsController', RoomsController)
-         .controller('UsersController', UsersController);
+    //load controllers
+    app.controller('AppController', AppController)
+      .controller('HomeController', HomeController)
+      .controller('RoomsController', RoomsController)
+      .controller('UsersController', UsersController);
 
-      app.run(run);
+    app.run(run);
 
-      return app;
+    return app;
   }
 );
