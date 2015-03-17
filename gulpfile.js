@@ -63,10 +63,6 @@ gulp.task('copy', function() {
   gulp.src(['./bower_components/jquery/dist/jquery.min.{map,js}'])
     .pipe(gulp.dest('./public/js/lib/'));
 
-  // jQuery
-  gulp.src(['./bower_components/jquery/dist/jquery.min.{map,js}'])
-    .pipe(gulp.dest('./public/js/lib/'));
-
   // Modernizr
   gulp.src(['./bower_components/modernizr/modernizr.js'])
     .pipe(gulp.dest('./public/js/lib/'));
