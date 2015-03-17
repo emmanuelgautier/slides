@@ -1,13 +1,11 @@
-define(['fastclick'], function(FastClick) {
-  return ['$rootScope', '$auth',
-    function ($rootScope, $auth) {
-      FastClick.attach(document.body);
-
+define([], function() {
+  return ['$rootScope', '$location', '$auth',
+    function ($rootScope, $location, $auth) {
       $rootScope.$on("$locationChangeStart", function(event, next, current) {
-        for(var i in window.routes) {
+        for(var i in foundationRoutes) {
           if(next.indexOf(i) != -1) {
-            if(window.routes[i].filter && window.routes[i].filter.auth && !$auth.isAuthenticated()) {
-              window.location = '/login';
+            if(foundationRoutes[i].auth === true && !$auth.isAuthenticated()) {
+              $location.path("/login");
 
               event.preventDefault();
             }

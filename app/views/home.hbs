@@ -1,11 +1,13 @@
 {{!< main}}
 
-<div ng-controller="AppController">
-    <div ng-include="'/js/app/views/partials/header.html'"></div>
+<div class="grid-frame vertical" ng-controller="AppController">
+    <div ng-include="'/templates/partials/topbar.html'"></div>
 
-    <div class="main">
-        <div ng-view></div>
+    <div class="grid-content">
+        <div class="grid-container">
+            <div ng-class="['ui-animation']" ui-view></div>
+        </div>
     </div>
 
-    <div ng-include="'/js/app/views/partials/footer.html'"></div>
+     <div ng-include="'/templates/partials/footer.html'"></div>
 </div>

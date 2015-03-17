@@ -1,0 +1,13 @@
+---
+name: rooms.list
+url: /
+---
+<section ng-controller="RoomsController" ng-init="list()">
+    <h1>Salles publiques</h1>
+
+    <ul>
+        <div ng-repeat="room in rooms">
+            <li><a ui-sref="rooms.show({ token: room.token })">{{room.name}}</a></li>
+        </div>
+    </ul>
+</section>

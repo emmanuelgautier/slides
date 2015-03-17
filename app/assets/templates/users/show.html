@@ -1,0 +1,24 @@
+---
+name: users.show
+url: /:username
+animationIn: fadeIn
+animationOut: fadeOut
+---
+<section ng-controller="UsersController" ng-init="show()">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img ng-src="{{user.image}}" alt="{{user.displayName}}" title="{{user.displayName}}">
+            </div>
+            <div class="col-md-8">
+                <div ng-if="$auth.isAuthenticated()">
+                   <i class="fa fa-pencil"></i>&nbsp;<a href="#!users/edit">Edit</a>
+                </div>
+                <h1>{{user.displayName}}</h1>
+            </div>
+            <div class="col-md-12">
+                <h2>Presentations</h2>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,6 +1,7 @@
 define([
     'require',
     'angular',
+    'app/routes',
     'app/config',
     'app/run',
     'app/services/auth',
@@ -17,6 +18,7 @@ define([
   function(
     require, 
     angular,
+    routes,
     config,
     run,
     $auth,
@@ -37,16 +39,14 @@ define([
 
         'ui.router',
         'ngAnimate',
-        'ngSVGAttributes',
 
+        //foundation
         'foundation',
         'foundation.dynamicRouting',
         'foundation.dynamicRouting.animations'
       ]);
 
       app.config(config);
-
-      config.$inject = ['$urlRouterProvider', '$locationProvider'];
 
       //load factories
       app.factory('$auth', $auth)

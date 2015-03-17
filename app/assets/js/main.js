@@ -5,6 +5,7 @@ require.config({
   maps: {},
   paths: {
     "angular": "lib/angular",
+    "foundation": "lib/foundation",
 
     "socketio": "lib/socket.io",
 
@@ -15,11 +16,9 @@ require.config({
     "angular": {
       exports: "angular"
     },
-    "angular-route": {
-      deps: ["angular"]
-    },
-    "angular-resource": {
-      deps: ["angular"]
+    "foundation": {
+        exports: "foundation",
+        deps: ['angular']
     },
     "socketio": {
       exports: "io"
@@ -27,8 +26,8 @@ require.config({
   }
 });
 
-require(['angular', 'app/app'], 
-  function(angular, app) {
+require(['angular', 'foundation', 'app/app'], 
+  function(angular, foundation, app) {
     'use strict';
 
     angular.bootstrap(document, ['slides']);
