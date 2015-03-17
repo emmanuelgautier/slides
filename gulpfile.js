@@ -166,6 +166,9 @@ gulp.task('default', ['build'], function() {
   // Watch JavaScript
   gulp.watch(['./app/assets/js/**/*'], ['uglify', 'copy']);
 
+  //watch Templates
+  gulp.watch(['./app/assets/templates/**/*.*'], ['routing-templates']);
+
   // Watch static files
   gulp.watch(['./app/assets/**/*.*', '!./app/assets/templates/**/*.*', '!./app/assets/{scss,js}/**/*.*'], ['copy']);
 });
