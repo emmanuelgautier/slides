@@ -1,11 +1,11 @@
 define([], function() {
   'use strict';
 
-  return ['$http', '$session', function($http, $session) {
+  return ['$session', function($session) {
     var $auth = {};
 
     $auth.isAuthenticated = function() {
-      return !!$session.user._id;
+      return !!$session.user && !!$session.user._id;
     };
 
     return $auth;
