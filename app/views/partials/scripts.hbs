@@ -1,4 +1,33 @@
 <!--[if lte IE 7]><script src="/lib/json2.js"></script><![endif]-->
 <script type="text/javascript" src="/js/lib/modernizr.js"></script>
 <script type="text/javascript" src="/js/lib/jquery.min.js"></script>
-{{#unless noangular}}<script type="text/javascript" src="/js/lib/require.js" data-main="js/main"></script>{{/unless}}
+{{#unless noangular}}
+<script type="text/javascript">
+var require = {
+  baseUrl: "/js",
+  maps: {},
+  paths: {
+    "angular": "lib/angular",
+    "foundation": "lib/foundation",
+
+    "socketio": "lib/socket.io",
+
+    "slideshow": "app/services/slideshow",
+    "slideshare": "app/services/slideshare"
+  },
+  shim: {
+    "angular": {
+      exports: "angular"
+    },
+    "foundation": {
+        exports: "foundation",
+        deps: ['angular']
+    },
+    "socketio": {
+      exports: "io"
+    }
+  }
+};
+</script>
+<script type="text/javascript" src="/js/lib/require.js" data-main="main"></script>
+{{/unless}}
