@@ -151,7 +151,7 @@ gulp.task('routing-templates', ['copy'], function() {
 gulp.task('build', function() {
   sequence('clean', ['copy', 'sass', 'uglify'], 'routing-templates', function() {
     console.log("Successfully built.");
-  })
+  });
 });
 
 // Default task: builds your app, starts a server, and recompiles assets when they change
@@ -166,5 +166,5 @@ gulp.task('default', ['build'], function() {
   gulp.watch(['./app/assets/templates/**/*.*'], ['routing-templates']);
 
   // Watch static files
-  gulp.watch(['./app/assets/**/*.*', '!./app/assets/templates/**/*.*', '!./app/assets/{scss,js}/**/*.*'], ['copy']);
+  gulp.watch(['./app/assets/**/*.*', '!./app/assets/templates/**/*.*', '!./app/assets/{scss}/**/*.*'], ['copy']);
 });
